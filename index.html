@@ -3,23 +3,85 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Image</title>
+<title>Riddles Cleaning</title>
+
 <style>
 body {
 margin: 0;
 background: #000;
 display: flex;
-justify-content: center;
+flex-direction: column;
 align-items: center;
-height: 100vh;
+justify-content: center;
+min-height: 100vh;
+color: #fff;
+font-family: Arial, sans-serif;
 }
+
 img {
 max-width: 100%;
-max-height: 100%;
+max-height: 75vh;
+margin-bottom: 20px;
+}
+
+.buttons {
+display: flex;
+flex-direction: column;
+gap: 12px;
+margin-bottom: 30px;
+width: 90%;
+max-width: 320px;
+}
+
+.btn {
+text-decoration: none;
+padding: 14px;
+border-radius: 6px;
+font-size: 16px;
+font-weight: bold;
+color: white;
+text-align: center;
+}
+
+.call {
+background: #28a745;
+}
+
+.facebook {
+background: #1877F2;
+}
+
+.tiktok {
+background: #000;
+border: 1px solid #fff;
 }
 </style>
 </head>
+
 <body>
-<img src="Screenshot_20260116_205523_ChatGPT.jpg" alt="Image">
+
+<!-- IMAGE -->
+<img src="Screenshot_20260116_205523_ChatGPT.jpg" alt="Riddles Cleaning">
+
+<!-- ACTION BUTTONS -->
+<div class="buttons">
+
+<!-- CALL BUTTON -->
+<a class="btn call" href="tel:6094128005">
+Call Now
+</a>
+
+<!-- FACEBOOK -->
+<a class="btn facebook" href="https://www.facebook.com/jackie.riddle.98" target="_blank">
+Facebook
+</a>
+
+<!-- TIKTOK -->
+<a class="btn tiktok" href="https://www.tiktok.com/@jackieriddle4" target="_blank">
+TikTok
+</a>
+
+</div>
+
 </body>
 </html>
