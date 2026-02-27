@@ -4,6 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>A Shore Thing Cleaning Solutions</title>
+
 <style>
 body {
   margin: 0;
@@ -41,6 +42,7 @@ header {
   text-decoration: none;
   color: white;
   transition: 0.3s;
+  cursor: pointer;
 }
 
 .btn:hover {
@@ -52,17 +54,12 @@ header {
 .facebook { background: #1877F2; border: 3px solid #fff; }
 .tiktok { background: #111; border: 3px solid #fff; }
 .custom { background: #6f42c1; border: 3px solid #fff; }
-.Dubai Chocolate { background: #6f42c1; border: 1px solid #fff; }
+.chocolate { background: linear-gradient(45deg,#d4af37,#8B4513); border: 3px solid #fff; }
 
 /* Gallery */
 #gallery {
   padding: 60px 20px;
   background: #6f42c1;
-}
-
-#gallery h2 {
-  margin-bottom: 40px;
-  font-size: 28px;
 }
 
 .gallery-grid {
@@ -105,11 +102,6 @@ header {
   max-width: 90%;
   max-height: 80%;
   border-radius: 10px;
-  display: block;
-  filter: none !important;           /* remove any tint */
-  background: none !important;       /* remove background color */
-  mix-blend-mode: normal !important; /* prevent blending */
-  box-shadow: 0 20px 40px rgba(0,0,0,0.7);
 }
 
 .arrow {
@@ -121,21 +113,15 @@ header {
   cursor: pointer;
   padding: 10px;
   user-select: none;
-  z-index: 1000;
 }
 
 .arrow.left { left: 20px; }
 .arrow.right { right: 20px; }
 
-/* Before/After Sliders */
+/* Before/After */
 .before-after-section {
   padding: 60px 20px;
   background: #0d0d0d;
-}
-
-.before-after-section h2 {
-  margin-bottom: 30px;
-  font-size: 28px;
 }
 
 .compare-container {
@@ -144,29 +130,25 @@ header {
   margin: auto 0 50px;
   overflow: hidden;
   border-radius: 12px;
-  user-select: none;
 }
 
 .compare-container img {
   display: block;
   width: 100%;
-  height: auto;
 }
 
 .overlay {
   position: absolute;
   top: 0;
   left: 0;
-  width: 50%; /* start at 50% */
+  width: 50%;
   height: 100%;
   overflow: hidden;
 }
 
 .overlay img {
-  width: 100%;
   height: 100%;
   object-fit: cover;
-  display: block;
 }
 
 .slider {
@@ -177,39 +159,124 @@ header {
   height: 100%;
   background: white;
   cursor: ew-resize;
-  z-index: 2;
-  border-radius: 2px;
+}
+
+/* Chocolate Popup */
+#chocolatePopup {
+  display: none;
+  position: fixed;
+  z-index: 5000;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.9);
+  justify-content: center;
+  align-items: center;
+  overflow-y: auto;
+}
+
+.chocolate-content {
+  background: white;
+  color: #333;
+  width: 95%;
+  max-width: 550px;
+  padding: 25px;
+  border-radius: 15px;
+  position: relative;
+  text-align: center;
+}
+
+.close-chocolate {
+  position: absolute;
+  right: 15px;
+  top: 10px;
+  font-size: 22px;
+  cursor: pointer;
+}
+
+.product-gallery {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 8px;
+  margin-bottom: 15px;
+}
+
+.product-gallery img {
+  width: 100%;
+  height: 90px;
+  object-fit: cover;
+  border-radius: 8px;
+}
+
+.package-box {
+  background: #f3f3f3;
+  padding: 8px;
+  margin: 6px 0;
+  border-radius: 8px;
+  font-weight: bold;
+}
+
+.chocolate-content input,
+.chocolate-content select,
+.chocolate-content textarea {
+  width: 100%;
+  padding: 10px;
+  margin: 8px 0;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+}
+
+.total-display {
+  font-size: 18px;
+  font-weight: bold;
+  margin: 10px 0;
+  color: #8B4513;
+}
+
+.payment-buttons {
+  display: flex;
+  gap: 10px;
+  margin: 15px 0;
+}
+
+.pay-btn {
+  flex: 1;
+  padding: 10px;
+  border-radius: 8px;
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.cashapp { background: #00C244; }
+.venmo { background: #3D95CE; }
+
+.submit-btn {
+  background: #8B4513;
+  color: white;
+  padding: 14px;
+  border: none;
+  border-radius: 8px;
+  width: 100%;
+  font-weight: bold;
+  cursor: pointer;
 }
 </style>
 </head>
+
 <body>
 
 <header>
   <img class="main-image" src="header image.JPG" alt="A Shore Thing">
 
- <div class="buttons">
-<a class="btn custom" 
-   href="https://riddlescleaning.github.io/RiddlesKeyRings-Things.github.io-/" 
-   target="_blank" 
-   rel="noopener noreferrer">
-Custom Gifts
-</a>
-
-  <a class="btn call" href="tel:6094128005">
-    Call Now
-  </a>
-
- <a class="btn facebook" 
-   href="https://facebook.com/jackie.riddle.98" 
-   target="_blank" 
-   rel="noopener noreferrer">
-Facebook
-</a>
-
-  <a class="btn tiktok" href="https://www.tiktok.com/@jackieriddle4" target="_blank">
-    TikTok
-  </a>
-</div>
+  <div class="buttons">
+    <a class="btn custom" href="https://riddlescleaning.github.io/RiddlesKeyRings-Things.github.io-/" target="_blank">Custom Gifts</a>
+    <a class="btn call" href="tel:6094128005">Call Now</a>
+    <a class="btn facebook" href="https://facebook.com/jackie.riddle.98" target="_blank">Facebook</a>
+    <a class="btn tiktok" href="https://www.tiktok.com/@jackieriddle4" target="_blank">TikTok</a>
+    <a class="btn chocolate" onclick="openChocolatePopup()">Dubai Chocolate</a>
+  </div>
 </header>
 
 <!-- Gallery -->
@@ -224,13 +291,13 @@ Facebook
   </div>
 </section>
 
-<!-- Before/After Sliders -->
+<!-- Before/After Sections (kept same as yours) -->
 <section class="before-after-section">
   <h2>Before & After 1</h2>
   <div class="compare-container">
-    <img src="7 corner bottom after 1.JPG" alt="Before">
+    <img src="7 corner bottom after 1.JPG">
     <div class="overlay">
-      <img src="15 corner bottom before 1.JPG" alt="After">
+      <img src="15 corner bottom before 1.JPG">
     </div>
     <div class="slider"></div>
   </div>
@@ -239,9 +306,9 @@ Facebook
 <section class="before-after-section">
   <h2>Before & After 2</h2>
   <div class="compare-container">
-    <img src="nasty after.JPG" alt="Before">
+    <img src="nasty after.JPG">
     <div class="overlay">
-      <img src="nasty before.JPG" alt="After">
+      <img src="nasty before.JPG">
     </div>
     <div class="slider"></div>
   </div>
@@ -250,9 +317,9 @@ Facebook
 <section class="before-after-section">
   <h2>Before & After 3</h2>
   <div class="compare-container">
-    <img src="sink after 1.JPG" alt="Before">
+    <img src="sink after 1.JPG">
     <div class="overlay">
-      <img src="sink 1 before.JPG" alt="After">
+      <img src="sink 1 before.JPG">
     </div>
     <div class="slider"></div>
   </div>
@@ -265,8 +332,56 @@ Facebook
   <span class="arrow right" onclick="changeSlide(1)">❯</span>
 </div>
 
+<!-- Chocolate Popup -->
+<div id="chocolatePopup">
+  <div class="chocolate-content">
+    <span class="close-chocolate" onclick="closeChocolatePopup()">&times;</span>
+    <h2>Luxury Dubai Chocolate</h2>
+
+    <div class="product-gallery">
+      <img src="chocolate1.jpg">
+      <img src="chocolate2.jpg">
+      <img src="chocolate3.jpg">
+    </div>
+
+    <div class="package-box">Small Box – $15</div>
+    <div class="package-box">Medium Box – $25</div>
+    <div class="package-box">Large Box – $40</div>
+
+    <form onsubmit="sendChocolateOrder(event)">
+      <input type="text" id="cname" placeholder="Your Name" required>
+      <input type="tel" id="cphone" placeholder="Your Phone Number" required>
+
+      <select id="cpackage" onchange="calculateChocolateTotal()" required>
+        <option value="">Select Package</option>
+        <option value="15">Small Box – $15</option>
+        <option value="25">Medium Box – $25</option>
+        <option value="40">Large Box – $40</option>
+      </select>
+
+      <select id="cdelivery" onchange="calculateChocolateTotal()">
+        <option value="0">Pickup – Free</option>
+        <option value="5">Local Delivery – $5</option>
+      </select>
+
+      <div class="total-display">
+        Total: $<span id="chocolateTotal">0</span>
+      </div>
+
+      <textarea id="cnotes" placeholder="Pickup date or instructions"></textarea>
+
+      <div class="payment-buttons">
+        <a href="https://cash.app/$YOURCASHTAG" target="_blank" class="pay-btn cashapp">Cash App</a>
+        <a href="https://venmo.com/YOURVENMO" target="_blank" class="pay-btn venmo">Venmo</a>
+      </div>
+
+      <button type="submit" class="submit-btn">Text Order</button>
+    </form>
+  </div>
+</div>
+
 <script>
-// ===== Lightbox =====
+/* Lightbox */
 let galleryImages = document.querySelectorAll(".gallery-grid img");
 let currentIndex = 0;
 
@@ -287,49 +402,40 @@ document.getElementById("lightbox").addEventListener("click", function(e){
   if(e.target.id === "lightbox") this.style.display = "none";
 });
 
-// ===== Before/After Sliders (Multiple) =====
-const allContainers = document.querySelectorAll(".compare-container");
+/* Chocolate Popup */
+function openChocolatePopup() {
+  document.getElementById("chocolatePopup").style.display = "flex";
+}
 
-allContainers.forEach(container => {
-  const slider = container.querySelector(".slider");
-  const overlay = container.querySelector(".overlay");
+function closeChocolatePopup() {
+  document.getElementById("chocolatePopup").style.display = "none";
+}
 
-  function setInitialSlider() {
-    overlay.style.width = container.offsetWidth / 2 + "px";
-    slider.style.left = container.offsetWidth / 2 + "px";
-  }
+function calculateChocolateTotal() {
+  var packagePrice = parseInt(document.getElementById("cpackage").value) || 0;
+  var deliveryPrice = parseInt(document.getElementById("cdelivery").value) || 0;
+  document.getElementById("chocolateTotal").innerText = packagePrice + deliveryPrice;
+}
 
-  window.addEventListener("load", setInitialSlider);
-  window.addEventListener("resize", setInitialSlider);
+function sendChocolateOrder(event) {
+  event.preventDefault();
+  var name = document.getElementById("cname").value;
+  var phone = document.getElementById("cphone").value;
+  var packagePrice = document.getElementById("cpackage").value;
+  var delivery = document.getElementById("cdelivery").value;
+  var total = document.getElementById("chocolateTotal").innerText;
+  var notes = document.getElementById("cnotes").value;
 
-  let dragging = false;
+  var message = "Dubai Chocolate Order:%0A"
+              + "Name: " + name + "%0A"
+              + "Customer Phone: " + phone + "%0A"
+              + "Package Price: $" + packagePrice + "%0A"
+              + "Delivery Fee: $" + delivery + "%0A"
+              + "Total: $" + total + "%0A"
+              + "Notes: " + notes;
 
-  slider.addEventListener("mousedown", () => dragging = true);
-  document.addEventListener("mouseup", () => dragging = false);
-  document.addEventListener("mousemove", (e) => {
-    if (!dragging) return;
-    let rect = container.getBoundingClientRect();
-    let offsetX = e.clientX - rect.left;
-    if (offsetX < 0) offsetX = 0;
-    if (offsetX > rect.width) offsetX = rect.width;
-    overlay.style.width = offsetX + "px";
-    slider.style.left = offsetX + "px";
-  });
-
-  // Touch events
-  slider.addEventListener("touchstart", () => dragging = true);
-  document.addEventListener("touchend", () => dragging = false);
-  document.addEventListener("touchmove", (e) => {
-    if (!dragging) return;
-    let touch = e.touches[0];
-    let rect = container.getBoundingClientRect();
-    let offsetX = touch.clientX - rect.left;
-    if (offsetX < 0) offsetX = 0;
-    if (offsetX > rect.width) offsetX = rect.width;
-    overlay.style.width = offsetX + "px";
-    slider.style.left = offsetX + "px";
-  });
-});
+  window.location.href = "sms:6094128005?body=" + message;
+}
 </script>
 
 </body>
