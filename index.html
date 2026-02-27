@@ -193,16 +193,100 @@ cursor: ew-resize;
 
 <!-- BEFORE & AFTER -->
 <section id="before-after">
-<h2>Before & After</h2>
-
-<div class="compare-container" id="compare">
-<img src="15 corner bottom before 1.JPG">
-<div class="overlay" id="overlay">
-<img src="7 corner bottom after 1.JPG">
-</div>
-<div class="slider" id="slider"></div>
-</div>
+  <h2>Before & After</h2>
+  <div class="compare-container" id="compare">
+    <img src="15 corner bottom before 1.JPG" alt="Before Cleaning">
+    <div class="overlay" id="overlay">
+      <img src="7 corner bottom after 1.JPG" alt="After Cleaning">
+    </div>
+    <div class="slider" id="slider"></div>
+  </div>
 </section>
+
+<style>
+#before-after {
+  padding: 60px 20px;
+  background: #0d0d0d;
+  text-align: center;
+}
+
+.compare-container {
+  position: relative;
+  max-width: 800px;
+  margin: auto;
+  overflow: hidden;
+  border-radius: 12px;
+  user-select: none;
+}
+
+.compare-container img {
+  width: 100%;
+  display: block;
+}
+
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 50%;
+  height: 100%;
+  overflow: hidden;
+}
+
+.overlay img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.slider {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  width: 4px;
+  height: 100%;
+  background: white;
+  cursor: ew-resize;
+  z-index: 2;
+}
+</style>
+
+<script>
+const slider = document.getElementById("slider");
+const overlay = document.getElementById("overlay");
+const container = document.getElementById("compare");
+
+let dragging = false;
+
+// Start dragging
+slider.addEventListener("mousedown", () => dragging = true);
+document.addEventListener("mouseup", () => dragging = false);
+
+// Move slider
+document.addEventListener("mousemove", (e) => {
+  if (!dragging) return;
+  let rect = container.getBoundingClientRect();
+  let offsetX = e.clientX - rect.left;
+  if (offsetX < 0) offsetX = 0;
+  if (offsetX > rect.width) offsetX = rect.width;
+  overlay.style.width = offsetX + "px";
+  slider.style.left = offsetX + "px";
+});
+
+// Optional: touch support for mobile
+slider.addEventListener("touchstart", () => dragging = true);
+document.addEventListener("touchend", () => dragging = false);
+document.addEventListener("touchmove", (e) => {
+  if (!dragging) return;
+  let touch = e.touches[0];
+  let rect = container.getBoundingClientRect();
+  let offsetX = touch.clientX - rect.left;
+  if (offsetX < 0) offsetX = 0;
+  if (offsetX > rect.width) offsetX = rect.width;
+  overlay.style.width = offsetX + "px";
+  slider.style.left = offsetX + "px";
+});
+</script>
 
 <!-- LIGHTBOX -->
 <div id="lightbox">
