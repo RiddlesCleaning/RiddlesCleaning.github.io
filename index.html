@@ -108,6 +108,7 @@ header {
   filter: none !important;           /* remove any tint */
   background: none !important;       /* remove background color */
   mix-blend-mode: normal !important; /* prevent blending */
+  box-shadow: 0 20px 40px rgba(0,0,0,0.7);
 }
 
 .arrow {
@@ -125,13 +126,13 @@ header {
 .arrow.left { left: 20px; }
 .arrow.right { right: 20px; }
 
-/* Before/After */
-#before-after {
+/* Before/After Sliders */
+.before-after-section {
   padding: 60px 20px;
   background: #0d0d0d;
 }
 
-#before-after h2 {
+.before-after-section h2 {
   margin-bottom: 30px;
   font-size: 28px;
 }
@@ -139,7 +140,7 @@ header {
 .compare-container {
   position: relative;
   max-width: 800px;
-  margin: auto;
+  margin: auto 0 50px;
   overflow: hidden;
   border-radius: 12px;
   user-select: none;
@@ -155,7 +156,7 @@ header {
   position: absolute;
   top: 0;
   left: 0;
-  width: 50%; /* Start at 50% */
+  width: 50%; /* start at 50% */
   height: 100%;
   overflow: hidden;
 }
@@ -188,8 +189,8 @@ header {
   <div class="buttons">
     <a class="btn custom" href="#" target="_blank">Custom Gifts</a>
     <a class="btn call" href="tel:6094128005">Call Now</a>
-    <a class="btn facebook" href="#" target="_blank">Facebook</a>
-    <a class="btn tiktok" href="#" target="_blank">TikTok</a>
+    <a class="btn facebook" href="#" target="https://www.facebook.com/jackie.riddle.98">Facebook</a>
+    <a class="btn tiktok" href="#" target="https://www.tiktok.com/@jackieriddle4">TikTok</a>
   </div>
 </header>
 
@@ -205,15 +206,37 @@ header {
   </div>
 </section>
 
-<!-- Before/After -->
-<section id="before-after">
-  <h2>Before & After</h2>
-  <div class="compare-container" id="compare">
+<!-- Before/After Sliders -->
+<section class="before-after-section">
+  <h2>Before & After 1</h2>
+  <div class="compare-container">
     <img src="15 corner bottom before 1.JPG" alt="Before">
-    <div class="overlay" id="overlay">
+    <div class="overlay">
       <img src="7 corner bottom after 1.JPG" alt="After">
     </div>
-    <div class="slider" id="slider"></div>
+    <div class="slider"></div>
+  </div>
+</section>
+
+<section class="before-after-section">
+  <h2>Before & After 2</h2>
+  <div class="compare-container">
+    <img src="4 corner after 1.JPG" alt="Before">
+    <div class="overlay">
+      <img src="10 corner bottom after 2.JPG" alt="After">
+    </div>
+    <div class="slider"></div>
+  </div>
+</section>
+
+<section class="before-after-section">
+  <h2>Before & After 3</h2>
+  <div class="compare-container">
+    <img src="1 clean closet floor.JPG" alt="Before">
+    <div class="overlay">
+      <img src="11 window sill bottom after.JPG" alt="After">
+    </div>
+    <div class="slider"></div>
   </div>
 </section>
 
@@ -246,46 +269,48 @@ document.getElementById("lightbox").addEventListener("click", function(e){
   if(e.target.id === "lightbox") this.style.display = "none";
 });
 
-// ===== Before/After Slider =====
-const slider = document.getElementById("slider");
-const overlay = document.getElementById("overlay");
-const container = document.getElementById("compare");
+// ===== Before/After Sliders (Multiple) =====
+const allContainers = document.querySelectorAll(".compare-container");
 
-function setInitialSlider() {
-  overlay.style.width = container.offsetWidth / 2 + "px";
-  slider.style.left = container.offsetWidth / 2 + "px";
-}
+allContainers.forEach(container => {
+  const slider = container.querySelector(".slider");
+  const overlay = container.querySelector(".overlay");
 
-window.addEventListener("load", setInitialSlider);
-window.addEventListener("resize", setInitialSlider);
+  function setInitialSlider() {
+    overlay.style.width = container.offsetWidth / 2 + "px";
+    slider.style.left = container.offsetWidth / 2 + "px";
+  }
 
-let dragging = false;
+  window.addEventListener("load", setInitialSlider);
+  window.addEventListener("resize", setInitialSlider);
 
-slider.addEventListener("mousedown", () => dragging = true);
-document.addEventListener("mouseup", () => dragging = false);
+  let dragging = false;
 
-document.addEventListener("mousemove", (e) => {
-  if (!dragging) return;
-  let rect = container.getBoundingClientRect();
-  let offsetX = e.clientX - rect.left;
-  if (offsetX < 0) offsetX = 0;
-  if (offsetX > rect.width) offsetX = rect.width;
-  overlay.style.width = offsetX + "px";
-  slider.style.left = offsetX + "px";
-});
+  slider.addEventListener("mousedown", () => dragging = true);
+  document.addEventListener("mouseup", () => dragging = false);
+  document.addEventListener("mousemove", (e) => {
+    if (!dragging) return;
+    let rect = container.getBoundingClientRect();
+    let offsetX = e.clientX - rect.left;
+    if (offsetX < 0) offsetX = 0;
+    if (offsetX > rect.width) offsetX = rect.width;
+    overlay.style.width = offsetX + "px";
+    slider.style.left = offsetX + "px";
+  });
 
-// Touch support
-slider.addEventListener("touchstart", () => dragging = true);
-document.addEventListener("touchend", () => dragging = false);
-document.addEventListener("touchmove", (e) => {
-  if (!dragging) return;
-  let touch = e.touches[0];
-  let rect = container.getBoundingClientRect();
-  let offsetX = touch.clientX - rect.left;
-  if (offsetX < 0) offsetX = 0;
-  if (offsetX > rect.width) offsetX = rect.width;
-  overlay.style.width = offsetX + "px";
-  slider.style.left = offsetX + "px";
+  // Touch events
+  slider.addEventListener("touchstart", () => dragging = true);
+  document.addEventListener("touchend", () => dragging = false);
+  document.addEventListener("touchmove", (e) => {
+    if (!dragging) return;
+    let touch = e.touches[0];
+    let rect = container.getBoundingClientRect();
+    let offsetX = touch.clientX - rect.left;
+    if (offsetX < 0) offsetX = 0;
+    if (offsetX > rect.width) offsetX = rect.width;
+    overlay.style.width = offsetX + "px";
+    slider.style.left = offsetX + "px";
+  });
 });
 </script>
 
