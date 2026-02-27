@@ -4,7 +4,6 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>A Shore Thing Cleaning Solutions</title>
-
 <style>
 /* ================= Body ================= */
 body {
@@ -55,7 +54,6 @@ header {
   overflow: hidden;
 }
 
-/* Unique hover effects for all buttons */
 .btn::after {
   content: '';
   position: absolute;
@@ -67,9 +65,7 @@ header {
   transition: transform 0.3s ease;
   border-radius: 8px;
 }
-.btn:hover::after {
-  transform: scaleX(1);
-}
+.btn:hover::after { transform: scaleX(1); }
 
 /* Button Colors */
 .call { background: #28a745; border: 3px solid #fff; }
@@ -93,6 +89,7 @@ header {
   background: linear-gradient(45deg, rgba(255,255,255,0.4) 0%, rgba(255,255,255,0) 50%, rgba(255,255,255,0.4) 100%);
   transform: rotate(25deg);
   transition: all 0.5s;
+  border-radius: 8px;
 }
 .chocolate:hover::before {
   animation: shimmer 2s infinite;
@@ -102,38 +99,36 @@ header {
   100% { transform: rotate(25deg) translate(100%, 100%); }
 }
 
-/* Cleaning button standout */
+/* Cleaning button standout + pulsate */
 .cleaning {
   background: #ff6f00;
   border: 3px solid #fff;
   font-size: 1.05em;
   box-shadow: 0 0 15px rgba(255,111,0,0.6);
+  animation: pulse 2s infinite;
 }
-.cleaning:hover {
-  transform: scale(1.05);
-  box-shadow: 0 0 25px rgba(255,111,0,0.9);
+@keyframes pulse {
+  0% { box-shadow: 0 0 15px rgba(255,111,0,0.6); }
+  50% { box-shadow: 0 0 25px rgba(255,111,0,1); }
+  100% { box-shadow: 0 0 15px rgba(255,111,0,0.6); }
 }
+.cleaning:hover { transform: scale(1.05); }
 
 /* ================= Gallery ================= */
 #gallery {
   padding: 60px 20px;
   background: #6f42c1;
 }
-
 .gallery-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  grid-template-columns: repeat(auto-fit,minmax(200px,1fr));
   gap: 15px;
   max-width: 1100px;
-  margin: auto;
+  margin:auto;
 }
-
 .gallery-grid img {
-  width: 100%;
-  height: 200px;
-  object-fit: cover;
-  border-radius: 10px;
-  cursor: pointer;
+  width:100%; height:200px; object-fit:cover;
+  border-radius:10px; cursor:pointer;
   transition: 0.3s;
 }
 .gallery-grid img:hover { transform: scale(1.05); }
@@ -142,44 +137,26 @@ header {
 #lightbox {
   position: fixed;
   display: none;
-  top:0; left:0;
-  width:100%; height:100%;
+  top:0; left:0; width:100%; height:100%;
   background: rgba(0,0,0,0.95);
   justify-content: center;
   align-items: center;
   flex-direction: column;
   z-index: 999;
-  opacity:0;
-  transition: opacity 0.3s ease;
 }
-#lightbox.show { opacity:1; }
-#lightbox img {
-  max-width: 90%;
-  max-height: 80%;
-  border-radius: 10px;
-}
-
+#lightbox img { max-width:90%; max-height:80%; border-radius:10px; }
 .arrow {
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  font-size: 40px;
-  color: white;
-  cursor: pointer;
-  padding: 10px;
+  position:absolute; top:50%;
+  transform:translateY(-50%);
+  font-size:40px; color:white;
+  cursor:pointer; padding:10px;
 }
 
 /* ================= Before/After ================= */
-.before-after-section {
-  padding: 60px 20px;
-  background: #0d0d0d;
-}
+.before-after-section { padding:60px 20px; background:#0d0d0d; }
+.before-after-section h2 { margin-bottom:30px; font-size:28px; }
 .compare-container {
-  position: relative;
-  max-width: 800px;
-  margin: 0 auto 50px auto;
-  overflow: hidden;
-  border-radius: 12px;
+  position:relative; max-width:800px; margin:0 auto 50px auto; overflow:hidden; border-radius:12px;
 }
 .compare-container img { display:block; width:100%; }
 .overlay { position:absolute; top:0; left:0; width:50%; height:100%; overflow:hidden; }
@@ -188,105 +165,45 @@ header {
 
 /* ================= Popups ================= */
 .popup {
-  display:none;
-  position: fixed;
-  top:0; left:0;
-  width:100%; height:100%;
+  display:none; position:fixed; top:0; left:0; width:100%; height:100%;
   background: rgba(0,0,0,0.9);
-  justify-content:center;
-  align-items:center;
-  overflow-y:auto;
-  padding:20px;
-  opacity:0;
-  transition: opacity 0.3s ease;
-  z-index:5000;
+  justify-content:center; align-items:center; overflow-y:auto; padding:20px; z-index:5000;
 }
-.popup.show { display:flex; opacity:1; }
-
+.popup.show { display:flex; }
 .popup-content {
-  background: white;
-  color: #333;
-  width:100%;
-  max-width:550px;
-  padding:25px;
-  border-radius:15px;
-  position:relative;
-  text-align:center;
-  max-height:90vh;
-  overflow-y:auto;
+  background:white; color:#333; width:100%; max-width:550px;
+  padding:25px; border-radius:15px; position:relative; text-align:center; max-height:90vh; overflow-y:auto;
 }
-
-.close-popup {
-  position:absolute;
-  right:15px; top:10px;
-  font-size:22px;
-  cursor:pointer;
-}
+.close-popup { position:absolute; right:15px; top:10px; font-size:22px; cursor:pointer; }
 
 /* ================= Product Gallery & Packages ================= */
 .product-gallery {
   display:grid;
-  grid-template-columns: repeat(3,1fr);
-  gap:8px;
-  margin-bottom:15px;
+  grid-template-columns: repeat(3,1fr); gap:8px; margin-bottom:15px;
 }
 .product-gallery img { width:100%; height:90px; object-fit:cover; border-radius:8px; }
-
-.package-box {
-  background:#f3f3f3;
-  padding:8px;
-  margin:6px 0;
-  border-radius:8px;
-  font-weight:bold;
-}
-
+.package-box { background:#f3f3f3; padding:8px; margin:6px 0; border-radius:8px; font-weight:bold; }
 .popup-content input, .popup-content select, .popup-content textarea {
-  width:100%;
-  padding:10px;
-  margin:8px 0;
-  border-radius:6px;
-  border:1px solid #ccc;
+  width:100%; padding:10px; margin:8px 0; border-radius:6px; border:1px solid #ccc;
 }
-
 .total-display { font-size:18px; font-weight:bold; margin:10px 0; color:#8B4513; }
-
 .payment-buttons { display:flex; gap:10px; margin:15px 0; }
 .pay-btn { flex:1; padding:10px; border-radius:8px; color:white; text-decoration:none; font-weight:bold; }
-.cashapp { background:#00C244; }
-.venmo { background:#3D95CE; }
-.submit-btn {
-  background:#8B4513;
-  color:white;
-  padding:14px;
-  border:none;
-  border-radius:8px;
-  width:100%;
-  font-weight:bold;
-  cursor:pointer;
-}
+.cashapp { background:#00C244; } .venmo { background:#3D95CE; }
+.submit-btn { background:#8B4513; color:white; padding:14px; border:none; border-radius:8px; width:100%; font-weight:bold; cursor:pointer; }
 
 /* ================= Floating Upsell Badge ================= */
 #upsellBadge {
-  position: fixed;
-  top: 20px;
-  right: 20px;
-  background: rgba(212,175,55,0.85);
-  padding: 10px 15px;
-  border-radius: 12px;
-  font-weight:bold;
-  display:none;
-  z-index: 6000;
-  color: #fff;
-  box-shadow: 0 0 15px rgba(212,175,55,0.7);
+  position:fixed; top:20px; right:20px;
+  background: rgba(212,175,55,0.85); padding:10px 15px;
+  border-radius:12px; font-weight:bold; display:none;
+  z-index:6000; color:#fff; box-shadow:0 0 15px rgba(212,175,55,0.7);
 }
 
 /* ================= Footer Badge ================= */
 .footer-badge {
-  text-align:center;
-  margin:40px 0 20px 0;
-  font-size:14px;
-  color:#fff;
-  font-weight:bold;
+  text-align:center; margin:40px 0 20px 0;
+  font-size:14px; color:#fff; font-weight:bold;
 }
 </style>
 </head>
@@ -294,14 +211,13 @@ header {
 
 <header>
   <img class="main-image" src="header image.JPG" alt="A Shore Thing">
-
   <div class="buttons">
-    <a class="btn custom" href="https://riddlescleaning.github.io/RiddlesKeyRings-Things.github.io-/" target="_blank">Custom Gifts</a>
+    <a class="btn custom" href="#">Custom Gifts</a>
     <a class="btn cleaning" onclick="openCleaningPopup()">Deep Clean / Cleaning Services</a>
     <a class="btn call" href="tel:6094128005">Call Now</a>
-    <a class="btn facebook" href="https://facebook.com/jackie.riddle.98" target="_blank">Facebook</a>
-    <a class="btn tiktok" href="https://www.tiktok.com/@jackieriddle4" target="_blank">TikTok</a>
-    <a class="btn instagram" href="https://www.instagram.com/YOURPROFILE" target="_blank">Instagram</a>
+    <a class="btn facebook" href="#">Facebook</a>
+    <a class="btn tiktok" href="#">TikTok</a>
+    <a class="btn instagram" href="#">Instagram</a>
     <a class="btn chocolate" onclick="openChocolatePopup()">Dubai Chocolate</a>
   </div>
 </header>
@@ -318,36 +234,28 @@ header {
   </div>
 </section>
 
-<!-- Before/After Sections -->
+<!-- Before/After -->
 <section class="before-after-section">
   <h2>Before & After 1</h2>
   <div class="compare-container">
     <img src="7 corner bottom after 1.JPG">
-    <div class="overlay">
-      <img src="15 corner bottom before 1.JPG">
-    </div>
+    <div class="overlay"><img src="15 corner bottom before 1.JPG"></div>
     <div class="slider"></div>
   </div>
 </section>
-
 <section class="before-after-section">
   <h2>Before & After 2</h2>
   <div class="compare-container">
     <img src="nasty after.JPG">
-    <div class="overlay">
-      <img src="nasty before.JPG">
-    </div>
+    <div class="overlay"><img src="nasty before.JPG"></div>
     <div class="slider"></div>
   </div>
 </section>
-
 <section class="before-after-section">
   <h2>Before & After 3</h2>
   <div class="compare-container">
     <img src="sink after 1.JPG">
-    <div class="overlay">
-      <img src="sink 1 before.JPG">
-    </div>
+    <div class="overlay"><img src="sink 1 before.JPG"></div>
     <div class="slider"></div>
   </div>
 </section>
@@ -367,44 +275,30 @@ header {
   <div class="popup-content">
     <span class="close-popup" onclick="closeChocolatePopup()">&times;</span>
     <h2>Luxury Dubai Chocolate</h2>
-
     <div class="product-gallery">
       <img src="chocolate1.jpg">
       <img src="chocolate2.jpg">
       <img src="chocolate3.jpg">
     </div>
-
-    <div class="package-box">Small Box – $15</div>
-    <div class="package-box">Medium Box – $25</div>
-    <div class="package-box">Large Box – $40</div>
-
     <form onsubmit="sendChocolateOrder(event)">
       <input type="text" id="cname" placeholder="Your Name" required>
       <input type="tel" id="cphone" placeholder="Your Phone Number" required>
-
       <select id="cpackage" onchange="calculateChocolateTotal()" required>
         <option value="">Select Package</option>
         <option value="15">Small Box – $15</option>
         <option value="25">Medium Box – $25</option>
         <option value="40">Large Box – $40</option>
       </select>
-
       <select id="cdelivery" onchange="calculateChocolateTotal()">
         <option value="0">Pickup – Free</option>
         <option value="5">Local Delivery – $5</option>
       </select>
-
-      <div class="total-display">
-        Total: $<span id="chocolateTotal">0</span>
-      </div>
-
+      <div class="total-display">Total: $<span id="chocolateTotal">0</span></div>
       <textarea id="cnotes" placeholder="Pickup date or instructions"></textarea>
-
       <div class="payment-buttons">
-        <a href="https://cash.app/$YOURCASHTAG" target="_blank" class="pay-btn cashapp">Cash App</a>
-        <a href="https://venmo.com/YOURVENMO" target="_blank" class="pay-btn venmo">Venmo</a>
+        <a href="#" class="pay-btn cashapp">Cash App</a>
+        <a href="#" class="pay-btn venmo">Venmo</a>
       </div>
-
       <button type="submit" class="submit-btn">Text Order</button>
     </form>
   </div>
@@ -415,34 +309,25 @@ header {
   <div class="popup-content">
     <span class="close-popup" onclick="closeCleaningPopup()">&times;</span>
     <h2>Deep Clean / Cleaning Services</h2>
-
     <form onsubmit="sendCleaningOrder(event)">
       <input type="text" id="sname" placeholder="Your Name" required>
       <input type="tel" id="sphone" placeholder="Your Phone Number" required>
       <input type="text" id="saddress" placeholder="Address" required>
       <input type="date" id="sdate" required>
-
       <select id="serviceType" onchange="calculateServiceTotal()" required>
         <option value="">Select Service</option>
         <option value="100">Standard Clean – $100</option>
         <option value="250">Deep Clean – $250</option>
       </select>
-
-      <div class="total-display">
-        Total: $<span id="serviceTotal">0</span>
-      </div>
-
+      <div class="total-display">Total: $<span id="serviceTotal">0</span></div>
       <div id="serviceUpsellBadge" style="display:none; font-weight:bold; color:#8B4513; margin:10px 0;">
         Includes Free Dubai Chocolate ($30 Value)!
       </div>
-
       <textarea id="snotes" placeholder="Additional instructions"></textarea>
-
       <div class="payment-buttons">
-        <a href="https://cash.app/$YOURCASHTAG" target="_blank" class="pay-btn cashapp">Cash App</a>
-        <a href="https://venmo.com/YOURVENMO" target="_blank" class="pay-btn venmo">Venmo</a>
+        <a href="#" class="pay-btn cashapp">Cash App</a>
+        <a href="#" class="pay-btn venmo">Venmo</a>
       </div>
-
       <button type="submit" class="submit-btn">Text Cleaning Order</button>
     </form>
   </div>
@@ -454,55 +339,62 @@ header {
 // ================= Lightbox =================
 let galleryImages = document.querySelectorAll(".gallery-grid img");
 let currentIndex = 0;
-
-function openLightbox(img) {
-  document.getElementById("lightbox").classList.add("show");
+function openLightbox(img){
+  document.getElementById("lightbox").style.display="flex";
   document.getElementById("lightbox-img").src = img.src;
   currentIndex = Array.from(galleryImages).indexOf(img);
 }
-
-function changeSlide(direction) {
-  currentIndex += direction;
-  if(currentIndex < 0) currentIndex = galleryImages.length -1;
-  if(currentIndex >= galleryImages.length) currentIndex = 0;
+function changeSlide(dir){
+  currentIndex += dir;
+  if(currentIndex<0) currentIndex=galleryImages.length-1;
+  if(currentIndex>=galleryImages.length) currentIndex=0;
   document.getElementById("lightbox-img").src = galleryImages[currentIndex].src;
 }
-
-document.getElementById("lightbox").addEventListener("click", function(e){
-  if(e.target.id==="lightbox") this.classList.remove("show");
+document.getElementById("lightbox").addEventListener("click", e=>{
+  if(e.target.id==="lightbox") document.getElementById("lightbox").style.display="none";
 });
 
 // ================= Before/After Sliders =================
-const allContainers = document.querySelectorAll(".compare-container");
+const allContainers=document.querySelectorAll(".compare-container");
 allContainers.forEach(container=>{
   const slider=container.querySelector(".slider");
   const overlay=container.querySelector(".overlay");
-
-  function setInitialSlider() {
-    overlay.style.width = container.offsetWidth/2 + "px";
-    slider.style.left = container.offsetWidth/2 + "px";
+  function setInitial(){
+    overlay.style.width=container.offsetWidth/2+"px";
+    slider.style.left=container.offsetWidth/2+"px";
   }
-
-  window.addEventListener("load", setInitialSlider);
-  window.addEventListener("resize", setInitialSlider);
-
+  window.addEventListener("load", setInitial);
+  window.addEventListener("resize", setInitial);
   let dragging=false;
   slider.addEventListener("mousedown",()=>dragging=true);
   document.addEventListener("mouseup",()=>dragging=false);
   document.addEventListener("mousemove",(e)=>{
-    if(!dragging) return;
-    let rect = container.getBoundingClientRect();
-    let offsetX = e.clientX-rect.left;
-    offsetX=Math.max(0,Math.min(offsetX,rect.width));
-    overlay.style.width = offsetX + "px";
-    slider.style.left = offsetX + "px";
+    if(!dragging)return;
+    let rect=container.getBoundingClientRect();
+    let x=e.clientX-rect.left;
+    x=Math.max(0,Math.min(x,rect.width));
+    overlay.style.width=x+"px";
+    slider.style.left=x+"px";
   });
-
   slider.addEventListener("touchstart",()=>dragging=true);
   document.addEventListener("touchend",()=>dragging=false);
   document.addEventListener("touchmove",(e)=>{
-    if(!dragging) return;
-    let touch = e.touches[0];
-    let rect = container.getBoundingClientRect();
-    let offsetX = touch.clientX-rect.left;
-    offsetX=Math.max(0,
+    if(!dragging)return;
+    let touch=e.touches[0];
+    let rect=container.getBoundingClientRect();
+    let x=touch.clientX-rect.left;
+    x=Math.max(0,Math.min(x,rect.width));
+    overlay.style.width=x+"px";
+    slider.style.left=x+"px";
+  });
+});
+
+// ================= Popups =================
+function openChocolatePopup(){ document.getElementById("chocolatePopup").classList.add("show"); }
+function closeChocolatePopup(){ document.getElementById("chocolatePopup").classList.remove("show"); }
+function openCleaningPopup(){ document.getElementById("cleaningPopup").classList.add("show"); }
+function closeCleaningPopup(){ document.getElementById("cleaningPopup").classList.remove("show"); }
+
+// ================= Order Calculations =================
+function calculateChocolateTotal(){
+  let packageVal=parseInt(document.getElementById("cpackage
