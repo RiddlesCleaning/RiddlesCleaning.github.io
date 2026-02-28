@@ -4,288 +4,301 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>A Shore Thing Cleaning Solutions</title>
-<style>
 
-/* ================= Body ================= */
+<style>
 body {
   margin: 0;
   font-family: Arial, sans-serif;
   background: #add8e6;
   color: #fff;
-  overflow-x: hidden;
+  text-align: center;
 }
 
-/* ================= Sticky Header ================= */
 header {
-  padding: 20px;
-  position: sticky;
-  top: 0;
-  background: rgba(0,0,0,0.85);
-  z-index: 10; /* lowered from 1000 */
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+  padding: 40px 20px 20px;
 }
 
 .main-image {
   max-width: 320px;
   border-radius: 12px;
-  margin-bottom: 10px;
+  margin-bottom: 25px;
   box-shadow: 0 10px 30px rgba(0,0,0,0.6);
 }
 
-/* ================= Buttons ================= */
+/* Buttons */
 .buttons {
   display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
+  flex-direction: column;
   gap: 15px;
-  margin-bottom: 10px;
+  max-width: 320px;
+  margin: auto;
+  padding-bottom: 40px;
 }
 
 .btn {
-  padding: 15px 20px;
+  padding: 15px;
   border-radius: 8px;
   font-weight: bold;
   text-decoration: none;
   color: white;
-  transition: all 0.3s ease;
+  transition: 0.3s;
   cursor: pointer;
-  position: relative;
-  overflow: hidden;
 }
 
-.btn::after {
-  content: '';
-  position: absolute;
-  top:0; left:0;
-  width: 100%; height: 100%;
-  background: rgba(255,255,255,0.1);
-  transform: scaleX(0);
-  transform-origin: left;
-  transition: transform 0.3s ease;
-  border-radius: 8px;
+.btn:hover {
+  opacity: 0.85;
+  transform: translateY(-2px);
 }
-.btn:hover::after { transform: scaleX(1); }
 
-/* Button Colors */
 .call { background: #28a745; border: 3px solid #fff; }
 .facebook { background: #1877F2; border: 3px solid #fff; }
 .tiktok { background: #111; border: 3px solid #fff; }
-.instagram { background: #C13584; border: 3px solid #fff; }
 .custom { background: #6f42c1; border: 3px solid #fff; }
+.chocolate { background: linear-gradient(45deg,#d4af37,#8B4513); border: 3px solid #fff; }
 
-/* Chocolate Button */
-.chocolate {
-  background: linear-gradient(45deg,#d4af37,#8B4513);
-  border: 3px solid #fff;
-}
-
-/* Cleaning Button */
-.cleaning {
-  background: #ff6f00;
-  border: 3px solid #fff;
-  font-size: 1.05em;
-  box-shadow: 0 0 15px rgba(255,111,0,0.6);
-  animation: pulse 2s infinite;
-}
-@keyframes pulse {
-  0% { box-shadow: 0 0 15px rgba(255,111,0,0.6); }
-  50% { box-shadow: 0 0 25px rgba(255,111,0,1); }
-  100% { box-shadow: 0 0 15px rgba(255,111,0,0.6); }
-}
-
-/* ================= Floating Upsell Badge ================= */
-#upsellBadge {
-  position: fixed;
-  top: 20px;
-  right: 20px;
-  background: #ffdd00;
-  color: #000;
-  padding: 15px 20px;
-  font-weight: bold;
-  font-size: 16px;
-  clip-path: polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%);
-  z-index: 6000;
-  animation: bounce 1.5s infinite;
-  text-align:center;
-}
-@keyframes bounce {
-  0%,100% { transform: translateY(0); }
-  50% { transform: translateY(-15px); }
-}
-
-/* ================= Gallery ================= */
+/* Gallery */
 #gallery {
   padding: 60px 20px;
-  display: flex;
+  background: #6f42c1;
+}
+
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 15px;
+  max-width: 1100px;
+  margin: auto;
+}
+
+.gallery-grid img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.gallery-grid img:hover {
+  transform: scale(1.05);
+}
+
+/* Lightbox */
+#lightbox {
+  position: fixed;
+  display: none;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.95);
   justify-content: center;
-  position: relative; /* z-index removed */
+  align-items: center;
+  flex-direction: column;
+  z-index: 999;
 }
 
-.gallery-container {
-  display:flex;
-  overflow-x:auto;
-  scroll-snap-type: x mandatory;
-  gap:10px;
-  max-width:1100px;
+#lightbox img {
+  max-width: 90%;
+  max-height: 80%;
+  border-radius: 10px;
 }
 
-.gallery-container img {
-  flex: 0 0 auto;
-  width: 250px;
-  height:200px;
-  object-fit:cover;
-  border-radius:10px;
-  cursor:pointer;
-  scroll-snap-align:center;
-  transition: transform 0.3s;
-}
-.gallery-container img:hover { transform: scale(1.05); }
-
-/* ================= Before/After ================= */
-.before-after-section { 
-  padding:60px 20px; 
-  background:#0d0d0d; 
+.arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 40px;
+  color: white;
+  cursor: pointer;
+  padding: 10px;
+  user-select: none;
 }
 
-.before-after-section h2 { 
-  margin-bottom:30px; 
-  font-size:28px; 
-  text-align:center; 
+.arrow.left { left: 20px; }
+.arrow.right { right: 20px; }
+
+/* Before/After */
+.before-after-section {
+  padding: 60px 20px;
+  background: #0d0d0d;
 }
 
 .compare-container {
-  position:relative;
-  max-width:800px;
-  margin:0 auto 50px auto;
-  overflow:hidden;
-  border-radius:12px;
+  position: relative;
+  max-width: 800px;
+  margin: auto 0 50px;
+  overflow: hidden;
+  border-radius: 12px;
 }
 
-.compare-container img { 
-  display:block; 
-  width:100%; 
+.compare-container img {
+  display: block;
+  width: 100%;
 }
 
-.overlay { 
-  position:absolute; 
-  top:0; 
-  left:0; 
-  width:50%; 
-  height:100%; 
-  overflow:hidden; 
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 50%;
+  height: 100%;
+  overflow: hidden;
 }
 
-.overlay img { 
-  height:100%; 
-  object-fit:cover; 
+.overlay img {
+  height: 100%;
+  object-fit: cover;
 }
 
-.slider { 
-  position:absolute; 
-  top:0; 
-  left:50%; 
-  width:4px; 
-  height:100%; 
-  background:white; 
-  cursor: ew-resize; 
+.slider {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  width: 4px;
+  height: 100%;
+  background: white;
+  cursor: ew-resize;
 }
 
-/* ================= Popups ================= */
-.popup {
-  display:none; 
-  position:fixed; 
-  top:0; 
-  left:0; 
-  width:100%; 
-  height:100%;
+/* Chocolate Popup */
+#chocolatePopup {
+  display: none;
+  position: fixed;
+  z-index: 5000;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
   background: rgba(0,0,0,0.9);
-  justify-content:center; 
-  align-items:center; 
-  overflow-y:auto; 
-  padding:20px; 
-  z-index:5000;
-}
-.popup.show { display:flex; }
-
-.popup-content {
-  background:white; 
-  color:#333; 
-  width:100%; 
-  max-width:600px;
-  padding:25px; 
-  border-radius:15px; 
-  position:relative; 
-  text-align:center; 
-  max-height:90vh; 
-  overflow-y:auto;
+  justify-content: center;
+  align-items: center;
+  overflow-y: auto;
 }
 
-.close-popup { 
-  position:absolute; 
-  right:15px; 
-  top:10px; 
-  font-size:22px; 
-  cursor:pointer; 
+.chocolate-content {
+  background: white;
+  color: #333;
+  width: 95%;
+  max-width: 550px;
+  padding: 25px;
+  border-radius: 15px;
+  position: relative;
+  text-align: center;
 }
 
-.payment-btn {
-  padding: 10px 20px; 
-  margin: 10px;
-  background:#28a745; 
-  color:#fff; 
-  font-weight:bold;
-  border:none; 
-  border-radius:8px; 
-  cursor:pointer;
+.close-chocolate {
+  position: absolute;
+  right: 15px;
+  top: 10px;
+  font-size: 22px;
+  cursor: pointer;
 }
 
-.footer-badge { 
-  text-align:center; 
-  margin:40px 0 20px 0; 
-  font-size:14px; 
-  color:#fff; 
-  font-weight:bold; 
+.product-gallery {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 8px;
+  margin-bottom: 15px;
 }
 
+.product-gallery img {
+  width: 100%;
+  height: 90px;
+  object-fit: cover;
+  border-radius: 8px;
+}
+
+.package-box {
+  background: #f3f3f3;
+  padding: 8px;
+  margin: 6px 0;
+  border-radius: 8px;
+  font-weight: bold;
+}
+
+.chocolate-content input,
+.chocolate-content select,
+.chocolate-content textarea {
+  width: 100%;
+  padding: 10px;
+  margin: 8px 0;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+}
+
+.total-display {
+  font-size: 18px;
+  font-weight: bold;
+  margin: 10px 0;
+  color: #8B4513;
+}
+
+.payment-buttons {
+  display: flex;
+  gap: 10px;
+  margin: 15px 0;
+}
+
+.pay-btn {
+  flex: 1;
+  padding: 10px;
+  border-radius: 8px;
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.cashapp { background: #00C244; }
+.venmo { background: #3D95CE; }
+
+.submit-btn {
+  background: #8B4513;
+  color: white;
+  padding: 14px;
+  border: none;
+  border-radius: 8px;
+  width: 100%;
+  font-weight: bold;
+  cursor: pointer;
+}
 </style>
 </head>
-<body>
 
-<!-- Floating Upsell Badge -->
-<div id="upsellBadge">BANG! Free Dubai Chocolate $30 Value</div>
+<body>
 
 <header>
   <img class="main-image" src="header image.JPG" alt="A Shore Thing">
+
   <div class="buttons">
-    <a class="btn custom" href="#">Custom Gifts</a>
-    <a class="btn cleaning" onclick="openCleaningPopup()">Deep Clean / Cleaning Services</a>
+    <a class="btn custom" href="https://riddlescleaning.github.io/RiddlesKeyRings-Things.github.io-/" target="_blank">Custom Gifts</a>
     <a class="btn call" href="tel:6094128005">Call Now</a>
-    <a class="btn facebook" href="#">Facebook</a>
-    <a class="btn tiktok" href="#">TikTok</a>
-    <a class="btn instagram" href="#">Instagram</a>
+    <a class="btn facebook" href="https://facebook.com/jackie.riddle.98" target="_blank">Facebook</a>
+    <a class="btn tiktok" href="https://www.tiktok.com/@jackieriddle4" target="_blank">TikTok</a>
     <a class="btn chocolate" onclick="openChocolatePopup()">Dubai Chocolate</a>
   </div>
 </header>
 
 <!-- Gallery -->
 <section id="gallery">
-  <div class="gallery-container" id="galleryScroll">
-    <img src="13 right side bed clean.JPG">
-    <img src="4 corner after 1.JPG">
-    <img src="1 clean closet floor.JPG">
-    <img src="10 corner bottom after 2.JPG">
-    <img src="11 window sill bottom after.JPG">
+  <h2>Our Work</h2>
+  <div class="gallery-grid">
+    <img src="13 right side bed clean.JPG" onclick="openLightbox(this)">
+    <img src="4 corner after 1.JPG" onclick="openLightbox(this)">
+    <img src="1 clean closet floor.JPG" onclick="openLightbox(this)">
+    <img src="10 corner bottom after 2.JPG" onclick="openLightbox(this)">
+    <img src="11 window sill bottom after.JPG" onclick="openLightbox(this)">
   </div>
 </section>
 
-<!-- Before/After Sections (unchanged) -->
+<!-- Before/After Sections (kept same as yours) -->
 <section class="before-after-section">
   <h2>Before & After 1</h2>
   <div class="compare-container">
     <img src="7 corner bottom after 1.JPG">
-    <div class="overlay"><img src="15 corner bottom before 1.JPG"></div>
+    <div class="overlay">
+      <img src="15 corner bottom before 1.JPG">
+    </div>
     <div class="slider"></div>
   </div>
 </section>
@@ -294,7 +307,9 @@ header {
   <h2>Before & After 2</h2>
   <div class="compare-container">
     <img src="nasty after.JPG">
-    <div class="overlay"><img src="nasty before.JPG"></div>
+    <div class="overlay">
+      <img src="nasty before.JPG">
+    </div>
     <div class="slider"></div>
   </div>
 </section>
@@ -303,12 +318,125 @@ header {
   <h2>Before & After 3</h2>
   <div class="compare-container">
     <img src="sink after 1.JPG">
-    <div class="overlay"><img src="sink 1 before.JPG"></div>
+    <div class="overlay">
+      <img src="sink 1 before.JPG">
+    </div>
     <div class="slider"></div>
   </div>
 </section>
 
-<div class="footer-badge">Woman-Owned Small Business</div>
+<!-- Lightbox -->
+<div id="lightbox">
+  <span class="arrow left" onclick="changeSlide(-1)">❮</span>
+  <img id="lightbox-img">
+  <span class="arrow right" onclick="changeSlide(1)">❯</span>
+</div>
+
+<!-- Chocolate Popup -->
+<div id="chocolatePopup">
+  <div class="chocolate-content">
+    <span class="close-chocolate" onclick="closeChocolatePopup()">&times;</span>
+    <h2>Luxury Dubai Chocolate</h2>
+
+    <div class="product-gallery">
+      <img src="chocolate1.jpg">
+      <img src="chocolate2.jpg">
+      <img src="chocolate3.jpg">
+    </div>
+
+    <div class="package-box">Small Box – $15</div>
+    <div class="package-box">Medium Box – $25</div>
+    <div class="package-box">Large Box – $40</div>
+
+    <form onsubmit="sendChocolateOrder(event)">
+      <input type="text" id="cname" placeholder="Your Name" required>
+      <input type="tel" id="cphone" placeholder="Your Phone Number" required>
+
+      <select id="cpackage" onchange="calculateChocolateTotal()" required>
+        <option value="">Select Package</option>
+        <option value="15">Small Box – $15</option>
+        <option value="25">Medium Box – $25</option>
+        <option value="40">Large Box – $40</option>
+      </select>
+
+      <select id="cdelivery" onchange="calculateChocolateTotal()">
+        <option value="0">Pickup – Free</option>
+        <option value="5">Local Delivery – $5</option>
+      </select>
+
+      <div class="total-display">
+        Total: $<span id="chocolateTotal">0</span>
+      </div>
+
+      <textarea id="cnotes" placeholder="Pickup date or instructions"></textarea>
+
+      <div class="payment-buttons">
+        <a href="https://cash.app/$YOURCASHTAG" target="_blank" class="pay-btn cashapp">Cash App</a>
+        <a href="https://venmo.com/YOURVENMO" target="_blank" class="pay-btn venmo">Venmo</a>
+      </div>
+
+      <button type="submit" class="submit-btn">Text Order</button>
+    </form>
+  </div>
+</div>
+
+<script>
+/* Lightbox */
+let galleryImages = document.querySelectorAll(".gallery-grid img");
+let currentIndex = 0;
+
+function openLightbox(img) {
+  document.getElementById("lightbox").style.display = "flex";
+  document.getElementById("lightbox-img").src = img.src;
+  currentIndex = Array.from(galleryImages).indexOf(img);
+}
+
+function changeSlide(direction) {
+  currentIndex += direction;
+  if (currentIndex < 0) currentIndex = galleryImages.length - 1;
+  if (currentIndex >= galleryImages.length) currentIndex = 0;
+  document.getElementById("lightbox-img").src = galleryImages[currentIndex].src;
+}
+
+document.getElementById("lightbox").addEventListener("click", function(e){
+  if(e.target.id === "lightbox") this.style.display = "none";
+});
+
+/* Chocolate Popup */
+function openChocolatePopup() {
+  document.getElementById("chocolatePopup").style.display = "flex";
+}
+
+function closeChocolatePopup() {
+  document.getElementById("chocolatePopup").style.display = "none";
+}
+
+function calculateChocolateTotal() {
+  var packagePrice = parseInt(document.getElementById("cpackage").value) || 0;
+  var deliveryPrice = parseInt(document.getElementById("cdelivery").value) || 0;
+  document.getElementById("chocolateTotal").innerText = packagePrice + deliveryPrice;
+}
+
+function sendChocolateOrder(event) {
+  event.preventDefault();
+  var name = document.getElementById("cname").value;
+  var phone = document.getElementById("cphone").value;
+  var packagePrice = document.getElementById("cpackage").value;
+  var delivery = document.getElementById("cdelivery").value;
+  var total = document.getElementById("chocolateTotal").innerText;
+  var notes = document.getElementById("cnotes").value;
+
+  var message = "Dubai Chocolate Order:%0A"
+              + "Name: " + name + "%0A"
+              + "Customer Phone: " + phone + "%0A"
+              + "Package Price: $" + packagePrice + "%0A"
+              + "Delivery Fee: $" + delivery + "%0A"
+              + "Total: $" + total + "%0A"
+              + "Notes: " + notes;
+
+  window.location.href = "sms:6094128005?body=" + message;
+}
+</script>
 
 </body>
 </html>
