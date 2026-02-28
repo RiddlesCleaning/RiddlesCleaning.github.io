@@ -5,6 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>A Shore Thing Cleaning Solutions</title>
 <style>
+
 /* ================= Body ================= */
 body {
   margin: 0;
@@ -20,7 +21,7 @@ header {
   position: sticky;
   top: 0;
   background: rgba(0,0,0,0.85);
-  z-index: 1000;
+  z-index: 10; /* lowered from 1000 */
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -74,32 +75,13 @@ header {
 .instagram { background: #C13584; border: 3px solid #fff; }
 .custom { background: #6f42c1; border: 3px solid #fff; }
 
-/* Chocolate Button Shimmer */
+/* Chocolate Button */
 .chocolate {
   background: linear-gradient(45deg,#d4af37,#8B4513);
   border: 3px solid #fff;
 }
-.chocolate::before {
-  content: "";
-  position: absolute;
-  top: -50%;
-  left: -50%;
-  width: 200%;
-  height: 200%;
-  background: linear-gradient(45deg, rgba(255,255,255,0.4) 0%, rgba(255,255,255,0) 50%, rgba(255,255,255,0.4) 100%);
-  transform: rotate(25deg);
-  transition: all 0.5s;
-  border-radius: 8px;
-}
-.chocolate:hover::before {
-  animation: shimmer 2s infinite;
-}
-@keyframes shimmer {
-  0% { transform: rotate(25deg) translate(-100%, -100%); }
-  100% { transform: rotate(25deg) translate(100%, 100%); }
-}
 
-/* Cleaning button standout + pulsate */
+/* Cleaning Button */
 .cleaning {
   background: #ff6f00;
   border: 3px solid #fff;
@@ -112,7 +94,6 @@ header {
   50% { box-shadow: 0 0 25px rgba(255,111,0,1); }
   100% { box-shadow: 0 0 15px rgba(255,111,0,0.6); }
 }
-.cleaning:hover { transform: scale(1.05); }
 
 /* ================= Floating Upsell Badge ================= */
 #upsellBadge {
@@ -139,9 +120,9 @@ header {
   padding: 60px 20px;
   display: flex;
   justify-content: center;
-  z-index: 500;
-  position: relative;
+  position: relative; /* z-index removed */
 }
+
 .gallery-container {
   display:flex;
   overflow-x:auto;
@@ -149,6 +130,7 @@ header {
   gap:10px;
   max-width:1100px;
 }
+
 .gallery-container img {
   flex: 0 0 auto;
   width: 250px;
@@ -162,8 +144,17 @@ header {
 .gallery-container img:hover { transform: scale(1.05); }
 
 /* ================= Before/After ================= */
-.before-after-section { padding:60px 20px; background:#0d0d0d; }
-.before-after-section h2 { margin-bottom:30px; font-size:28px; text-align:center; }
+.before-after-section { 
+  padding:60px 20px; 
+  background:#0d0d0d; 
+}
+
+.before-after-section h2 { 
+  margin-bottom:30px; 
+  font-size:28px; 
+  text-align:center; 
+}
+
 .compare-container {
   position:relative;
   max-width:800px;
@@ -171,37 +162,93 @@ header {
   overflow:hidden;
   border-radius:12px;
 }
-.compare-container img { display:block; width:100%; }
-.overlay { position:absolute; top:0; left:0; width:50%; height:100%; overflow:hidden; }
-.overlay img { height:100%; object-fit:cover; }
-.slider { position:absolute; top:0; left:50%; width:4px; height:100%; background:white; cursor: ew-resize; }
+
+.compare-container img { 
+  display:block; 
+  width:100%; 
+}
+
+.overlay { 
+  position:absolute; 
+  top:0; 
+  left:0; 
+  width:50%; 
+  height:100%; 
+  overflow:hidden; 
+}
+
+.overlay img { 
+  height:100%; 
+  object-fit:cover; 
+}
+
+.slider { 
+  position:absolute; 
+  top:0; 
+  left:50%; 
+  width:4px; 
+  height:100%; 
+  background:white; 
+  cursor: ew-resize; 
+}
 
 /* ================= Popups ================= */
 .popup {
-  display:none; position:fixed; top:0; left:0; width:100%; height:100%;
+  display:none; 
+  position:fixed; 
+  top:0; 
+  left:0; 
+  width:100%; 
+  height:100%;
   background: rgba(0,0,0,0.9);
-  justify-content:center; align-items:center; overflow-y:auto; padding:20px; z-index:5000;
+  justify-content:center; 
+  align-items:center; 
+  overflow-y:auto; 
+  padding:20px; 
+  z-index:5000;
 }
 .popup.show { display:flex; }
+
 .popup-content {
-  background:white; color:#333; width:100%; max-width:600px;
-  padding:25px; border-radius:15px; position:relative; text-align:center; max-height:90vh; overflow-y:auto;
+  background:white; 
+  color:#333; 
+  width:100%; 
+  max-width:600px;
+  padding:25px; 
+  border-radius:15px; 
+  position:relative; 
+  text-align:center; 
+  max-height:90vh; 
+  overflow-y:auto;
 }
-.close-popup { position:absolute; right:15px; top:10px; font-size:22px; cursor:pointer; }
 
-/* Product images in form */
-.product-img { max-width:200px; margin:15px 0; border-radius:12px; }
+.close-popup { 
+  position:absolute; 
+  right:15px; 
+  top:10px; 
+  font-size:22px; 
+  cursor:pointer; 
+}
 
-/* Payment buttons */
 .payment-btn {
-  padding: 10px 20px; margin: 10px;
-  background:#28a745; color:#fff; font-weight:bold;
-  border:none; border-radius:8px; cursor:pointer;
+  padding: 10px 20px; 
+  margin: 10px;
+  background:#28a745; 
+  color:#fff; 
+  font-weight:bold;
+  border:none; 
+  border-radius:8px; 
+  cursor:pointer;
 }
-.payment-btn:hover { background:#218838; }
 
-/* Footer Badge */
-.footer-badge { text-align:center; margin:40px 0 20px 0; font-size:14px; color:#fff; font-weight:bold; }
+.footer-badge { 
+  text-align:center; 
+  margin:40px 0 20px 0; 
+  font-size:14px; 
+  color:#fff; 
+  font-weight:bold; 
+}
+
 </style>
 </head>
 <body>
@@ -225,16 +272,15 @@ header {
 <!-- Gallery -->
 <section id="gallery">
   <div class="gallery-container" id="galleryScroll">
-    <img src="13 right side bed clean.JPG" onclick="openLightbox(this)">
-    <img src="4 corner after 1.JPG" onclick="openLightbox(this)">
-    <img src="1 clean closet floor.JPG" onclick="openLightbox(this)">
-    <img src="10 corner bottom after 2.JPG" onclick="openLightbox(this)">
-    <img src="11 window sill bottom after.JPG" onclick="openLightbox(this)">
-    <!-- Add more images here -->
+    <img src="13 right side bed clean.JPG">
+    <img src="4 corner after 1.JPG">
+    <img src="1 clean closet floor.JPG">
+    <img src="10 corner bottom after 2.JPG">
+    <img src="11 window sill bottom after.JPG">
   </div>
 </section>
 
-<!-- Before/After -->
+<!-- Before/After Sections (unchanged) -->
 <section class="before-after-section">
   <h2>Before & After 1</h2>
   <div class="compare-container">
@@ -243,6 +289,7 @@ header {
     <div class="slider"></div>
   </div>
 </section>
+
 <section class="before-after-section">
   <h2>Before & After 2</h2>
   <div class="compare-container">
@@ -251,6 +298,7 @@ header {
     <div class="slider"></div>
   </div>
 </section>
+
 <section class="before-after-section">
   <h2>Before & After 3</h2>
   <div class="compare-container">
@@ -260,131 +308,7 @@ header {
   </div>
 </section>
 
-<!-- Lightbox -->
-<div id="lightbox">
-  <span class="arrow left" onclick="changeSlide(-1)">❮</span>
-  <img id="lightbox-img">
-  <span class="arrow right" onclick="changeSlide(1)">❯</span>
-</div>
-
-<!-- Dubai Chocolate Popup -->
-<div id="chocolatePopup" class="popup">
-  <div class="popup-content">
-    <span class="close-popup" onclick="closeChocolatePopup()">&times;</span>
-    <h2>Luxury Dubai Chocolate</h2>
-    <img class="product-img" src="chocolate1.jpg" alt="Chocolate">
-    <p>Price: $15 per box</p>
-    <p>Select Quantity:</p>
-    <input type="number" id="chocQty" min="1" value="1">
-    <div>
-      <button class="payment-btn">Pay with Stripe</button>
-      <button class="payment-btn">Pay with PayPal</button>
-    </div>
-  </div>
-</div>
-
-<!-- Cleaning Service Popup -->
-<div id="cleaningPopup" class="popup">
-  <div class="popup-content">
-    <span class="close-popup" onclick="closeCleaningPopup()">&times;</span>
-    <h2>Deep Clean / Cleaning Services</h2>
-    <img class="product-img" src="deepclean1.jpg" alt="Deep Clean">
-    <p>Price: $120 per service</p>
-    <p>Select Options:</p>
-    <select id="cleaningOption">
-      <option>Standard Clean</option>
-      <option>Deep Clean</option>
-      <option>Move-In / Move-Out</option>
-    </select>
-    <p>Include Free Dubai Chocolate? <strong>Yes ($30 value)</strong></p>
-    <div>
-      <button class="payment-btn">Pay with Stripe</button>
-      <button class="payment-btn">Pay with PayPal</button>
-    </div>
-  </div>
-</div>
-
 <div class="footer-badge">Woman-Owned Small Business</div>
 
-<script>
-// ===== Lightbox =====
-let galleryImages = document.querySelectorAll(".gallery-container img");
-let currentIndex = 0;
-function openLightbox(img){
-  document.getElementById("lightbox").style.display="flex";
-  document.getElementById("lightbox-img").src = img.src;
-  currentIndex = Array.from(galleryImages).indexOf(img);
-}
-function changeSlide(dir){
-  currentIndex += dir;
-  if(currentIndex<0) currentIndex=galleryImages.length-1;
-  if(currentIndex>=galleryImages.length) currentIndex=0;
-  document.getElementById("lightbox-img").src = galleryImages[currentIndex].src;
-}
-document.getElementById("lightbox").addEventListener("click", e=>{
-  if(e.target.id==="lightbox") document.getElementById("lightbox").style.display="none";
-});
-
-// ===== Before/After Sliders =====
-const allContainers=document.querySelectorAll(".compare-container");
-allContainers.forEach(container=>{
-  const slider=container.querySelector(".slider");
-  const overlay=container.querySelector(".overlay");
-  function setInitial(){
-    overlay.style.width=container.offsetWidth/2+"px";
-    slider.style.left=container.offsetWidth/2+"px";
-  }
-  window.addEventListener("load", setInitial);
-  window.addEventListener("resize", setInitial);
-  let dragging=false;
-  slider.addEventListener("mousedown",()=>dragging=true);
-  document.addEventListener("mouseup",()=>dragging=false);
-  document.addEventListener("mousemove",(e)=>{
-    if(!dragging)return;
-    let rect=container.getBoundingClientRect();
-    let x=e.clientX-rect.left;
-    x=Math.max(0,Math.min(x,rect.width));
-    overlay.style.width=x+"px";
-    slider.style.left=x+"px";
-  });
-  slider.addEventListener("touchstart",()=>dragging=true);
-  document.addEventListener("touchend",()=>dragging=false);
-  document.addEventListener("touchmove",(e)=>{
-    if(!dragging)return;
-    let touch=e.touches[0];
-    let rect=container.getBoundingClientRect();
-    let x=touch.clientX-rect.left;
-    x=Math.max(0,Math.min(x,rect.width));
-    overlay.style.width=x+"px";
-    slider.style.left=x+"px";
-  });
-});
-
-// ===== Popups =====
-function openChocolatePopup(){ document.getElementById("chocolatePopup").classList.add("show"); }
-function closeChocolatePopup(){ document.getElementById("chocolatePopup").classList.remove("show"); }
-function openCleaningPopup(){ document.getElementById("cleaningPopup").classList.add("show"); }
-function closeCleaningPopup(){ document.getElementById("cleaningPopup").classList.remove("show"); }
-
-// ===== Gallery Swipe Scroll =====
-const galleryScroll=document.getElementById("galleryScroll");
-let isDown=false, startX, scrollLeft;
-galleryScroll.addEventListener("mousedown",(e)=>{
-  isDown=true;
-  startX=e.pageX - galleryScroll.offsetLeft;
-  scrollLeft=galleryScroll.scrollLeft;
-});
-galleryScroll.addEventListener("mouseleave",()=>isDown=false);
-galleryScroll.addEventListener("mouseup",()=>isDown=false);
-galleryScroll.addEventListener("mousemove",(e)=>{
-  if(!isDown) return;
-  e.preventDefault();
-  const x=e.pageX - galleryScroll.offsetLeft;
-  const walk=(x-startX)*2;
-  galleryScroll.scrollLeft=scrollLeft - walk;
-});
-galleryScroll.addEventListener("touchstart",(e)=>{ startX=e.touches[0].pageX; scrollLeft=galleryScroll.scrollLeft; });
-galleryScroll.addEventListener("touchmove",(e)=>{ const x=e.touches[0].pageX; galleryScroll.scrollLeft=scrollLeft-(x-startX)*2; });
-</script>
 </body>
 </html>
