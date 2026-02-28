@@ -4,330 +4,257 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>A Shore Thing Cleaning Solutions</title>
-
-<link href="https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap" rel="stylesheet">
-<script src="https://js.stripe.com/v3/"></script>
-
 <style>
-body{
-margin:0;
-font-family:'Segoe UI',sans-serif;
-background:linear-gradient(135deg,#eaf6ff,#ffffff);
-color:#222;
-}
+/* General Body */
+body { margin:0; font-family:'Segoe UI',Tahoma,Geneva,Verdana,sans-serif; background:#f5f7fa; color:#222; line-height:1.6; }
+a { text-decoration:none; }
 
-h2{
-font-family:'Great Vibes',cursive;
-font-size:44px;
-text-align:center;
-}
+/* Topbar */
+.topbar { background:#0d3b66; color:white; display:flex; justify-content:space-between; align-items:center; padding:15px 40px; font-weight:bold; }
+.topbar a { color:white; font-size:18px; }
 
-/* HEADER */
-header{text-align:center;padding:60px 20px;}
-.main-image{max-width:340px;border-radius:18px;box-shadow:0 25px 70px rgba(0,0,0,.25);margin-bottom:30px;}
+/* Hero */
+.hero { background:linear-gradient(rgba(0,0,0,.5),rgba(0,0,0,.5)), url('header image.JPG') center/cover no-repeat; color:white; padding:120px 20px; text-align:center; }
+.hero h1 { font-size:48px; margin-bottom:15px; font-family: 'Playfair Display', serif; }
+.hero p { font-size:20px; margin-bottom:25px; }
+.cta-btn { background:#e63946; color:white; padding:15px 30px; border:none; border-radius:6px; font-size:16px; cursor:pointer; transition: all 0.3s; }
+.cta-btn:hover { transform: scale(1.05); box-shadow:0 5px 20px rgba(230,57,70,.4); }
 
-.buttons{display:flex;flex-wrap:wrap;justify-content:center;gap:15px;}
+/* Sections */
+.section { padding:80px 20px; max-width:1100px; margin:auto; }
+.section h2 { text-align:center; margin-bottom:40px; font-size:36px; color:#0d3b66; font-family: 'Playfair Display', serif; }
 
-.btn{
-padding:14px 26px;
-border-radius:40px;
-font-weight:600;
-cursor:pointer;
-transition:.3s;
-text-decoration:none;
-display:flex;
-align-items:center;
-gap:8px;
-color:white;
-border:2px solid white;
-}
+/* Services */
+.services { display:grid; grid-template-columns:repeat(auto-fit,minmax(250px,1fr)); gap:30px; }
+.card { background:white; padding:30px; border-radius:12px; box-shadow:0 5px 20px rgba(0,0,0,.1); transition:all 0.3s; }
+.card:hover { transform: translateY(-5px); box-shadow:0 10px 25px rgba(0,0,0,.15); }
+.card h3 { color:#0d3b66; margin-bottom:15px; font-family: 'Playfair Display', serif; }
 
-/* BUTTON STYLES */
-.book-cleaning{
-background:#d8b4fe;
-border:2px solid #3b82f6;
-animation:pulseBorder 2s infinite;
-}
-@keyframes pulseBorder{
-0%{box-shadow:0 0 0 0 #3b82f6;}
-70%{box-shadow:0 0 0 12px transparent;}
-100%{box-shadow:0 0 0 0 transparent;}
-}
+/* Why Hire Us */
+.why { display:grid; grid-template-columns:repeat(auto-fit,minmax(250px,1fr)); gap:30px; text-align:center; }
+.why div { background:white; padding:25px; border-radius:12px; box-shadow:0 5px 20px rgba(0,0,0,.1); }
+.why h3 { color:#0d3b66; margin-bottom:10px; font-family: 'Playfair Display', serif; }
 
-.call{background:#16a34a;}
-.facebook{background:#1877F2;}
-.tiktok{background:black;}
-.chocolate{
-background:linear-gradient(45deg,#5c2c06,#8b4513,#5c2c06);
-box-shadow:inset 0 0 8px rgba(0,0,0,.6);
-}
-.custom{background:#6366f1;}
+/* FAQ */
+.faq { max-width:900px; margin: auto; }
+.faq-item { background:white; padding:20px 25px; margin-bottom:10px; border-radius:8px; box-shadow:0 5px 20px rgba(0,0,0,.05); cursor:pointer; transition:all 0.3s; }
+.faq-item:hover { transform:scale(1.02); }
+.faq-item h4 { margin:0; font-family: 'Playfair Display', serif; }
+.faq-item p { display:none; margin-top:10px; }
 
-/* GALLERY */
-section{padding:80px 20px;text-align:center;}
-.gallery-grid{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
-gap:20px;
-max-width:1100px;
-margin:auto;
-}
-.gallery-grid img{
-width:100%;
-height:220px;
-object-fit:cover;
-border-radius:14px;
-}
+/* Quote Form */
+.quote-form, .order-form { background:white; padding:40px; border-radius:12px; box-shadow:0 5px 20px rgba(0,0,0,.1); max-width:600px; margin:40px auto; }
+.quote-form input, .quote-form select, .quote-form textarea,
+.order-form input, .order-form select, .order-form textarea { width:100%; padding:12px; margin:10px 0; border-radius:5px; border:1px solid #ccc; }
+.submit-btn { background:#0d3b66; color:white; padding:14px; border:none; border-radius:6px; cursor:pointer; font-size:16px; width:100%; transition:all 0.3s; }
+.submit-btn:hover { background:#174b7c; transform:scale(1.03); }
 
-/* BEFORE AFTER */
-.compare-container{
-position:relative;
-max-width:900px;
-margin:50px auto;
-overflow:hidden;
-border-radius:18px;
-box-shadow:0 20px 60px rgba(0,0,0,.25);
-}
-.compare-container img{width:100%;display:block;}
-.overlay{
-position:absolute;
-top:0;left:0;width:50%;height:100%;overflow:hidden;
-}
-.overlay img{height:100%;object-fit:cover;}
-.slider{
-position:absolute;top:0;left:50%;width:4px;height:100%;background:white;cursor:ew-resize;
-}
-.slider::after{
-content:"";position:absolute;top:50%;left:-12px;transform:translateY(-50%);
-width:26px;height:26px;border-radius:50%;background:white;box-shadow:0 0 10px black;
-}
+/* Before/After Slider */
+.before-after-section { padding:60px 20px; text-align:center; }
+.compare-container { position:relative; max-width:800px; margin:40px auto; overflow:hidden; border-radius:12px; }
+.compare-container img { display:block; width:100%; }
+.overlay { position:absolute; top:0; right:0; width:50%; height:100%; overflow:hidden; }
+.overlay img { height:100%; object-fit:cover; }
+.slider { position:absolute; top:0; left:50%; width:5px; height:100%; background:white; cursor: ew-resize; }
 
-/* POPUPS */
-.popup{
-display:none;
-position:fixed;
-inset:0;
-background:rgba(0,0,0,.85);
-justify-content:center;
-align-items:flex-start;
-padding:60px 20px;
-overflow:auto;
-z-index:5000;
-}
-.popup-content{
-background:white;
-padding:40px;
-border-radius:20px;
-max-width:650px;
-width:100%;
-margin:auto;
-position:relative;
-}
-.close-popup{position:absolute;right:15px;top:10px;font-size:22px;cursor:pointer;}
+/* Gallery */
+.gallery-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(200px,1fr)); gap:15px; max-width:1100px; margin:auto; }
+.gallery-grid img { width:100%; height:200px; object-fit:cover; border-radius:10px; cursor:pointer; transition:all 0.3s; }
+.gallery-grid img:hover { transform:scale(1.05); }
 
-form input,form select,form textarea{
-width:100%;
-padding:14px;margin:10px 0;border-radius:10px;border:1px solid #ccc;
-}
+/* Floating Mobile Book Now */
+.floating-btn { position:fixed; bottom:20px; right:20px; background:#a29bfe; color:white; padding:15px 20px; border-radius:50px; font-weight:bold; cursor:pointer; box-shadow:0 5px 20px rgba(0,0,0,.3); z-index:1000; animation: pulse 2s infinite; }
+@keyframes pulse { 0%,100% { transform:scale(1); } 50% { transform:scale(1.05); } }
 
-.total-display{font-weight:bold;margin:15px 0;font-size:18px;}
+/* Woman-Owned Seal */
+.seal { margin:60px auto; width:150px; height:150px; border-radius:50%; background:radial-gradient(circle, #ffd700 0%, #b8860b 100%); display:flex; justify-content:center; align-items:center; color:black; font-weight:bold; font-family:'Playfair Display', serif; text-align:center; box-shadow:0 5px 15px rgba(0,0,0,.3); }
+.seal span { display:block; padding:10px; }
 
-.submit-btn{
-background:linear-gradient(45deg,#d4af37,#f5e27a,#d4af37);
-border:2px solid black;
-padding:16px;
-border-radius:40px;
-font-weight:bold;
-cursor:pointer;
-transition:.4s;
-}
-.submit-btn:hover{transform:scale(1.05);box-shadow:0 0 20px #d4af37;}
+/* Buttons Styling */
+.btn { padding:12px 20px; border-radius:6px; font-weight:bold; cursor:pointer; text-decoration:none; display:inline-flex; align-items:center; justify-content:center; margin:5px; border:2px solid white; transition:all 0.3s; }
+.btn-call { background:#28a745; color:white; border:2px solid white; }
+.btn-facebook { background:#1877F2; color:white; border:2px solid white; }
+.btn-tiktok { background:#111; color:white; border:2px solid white; }
+.btn-chocolate { background:linear-gradient(45deg,#d4af37,#8B4513); color:white; border:2px solid white; }
+.btn-custom { background:#6f42c1; color:white; border:2px solid white; }
+.btn-book { background:#a29bfe; color:white; border:2px solid #3498db; animation: shimmer 2s infinite; }
+@keyframes shimmer { 0%{background-position:0 0;} 100%{background-position:100% 0;} }
 
-/* FLOATING */
-.floating-book{
-position:fixed;
-bottom:20px;
-right:20px;
-background:#3b82f6;
-color:white;
-padding:15px 20px;
-border-radius:50px;
-font-weight:bold;
-cursor:pointer;
-z-index:6000;
-}
-@media(min-width:768px){.floating-book{display:none;}}
-
-/* WOMAN OWNED SEAL */
-.seal{
-margin:80px auto;
-width:220px;
-height:220px;
-border-radius:50%;
-background:radial-gradient(circle at 30% 30%,#fff8c6,#d4af37,#b8860b);
-display:flex;
-align-items:center;
-justify-content:center;
-text-align:center;
-font-weight:bold;
-color:black;
-box-shadow:0 0 50px rgba(0,0,0,.4);
-border:6px solid black;
-font-size:18px;
-}
-
+/* Payment buttons */
+.pay-btn { flex:1; padding:12px; border-radius:6px; color:white; text-decoration:none; font-weight:bold; display:inline-block; text-align:center; }
+.cashapp { background:#00C244; }
+.venmo { background:#3D95CE; }
+.payment-section { display:flex; gap:10px; margin:10px 0; }
 </style>
 </head>
 <body>
 
-<header>
-<img src="header image.JPG" class="main-image">
-
-<div class="buttons">
-<a class="btn custom" href="https://riddlescleaning.github.io/RiddlesKeyRings-Things.github.io-/" target="_blank">Custom Gifts</a>
-<a class="btn book-cleaning" onclick="openCleaning()">Book Cleaning</a>
-<a class="btn chocolate" onclick="openChocolate()">Dubai Chocolate</a>
-<a class="btn call" href="tel:6094128005">Call Now</a>
-<a class="btn facebook" href="https://facebook.com/jackie.riddle.98" target="_blank">Facebook</a>
-<a class="btn tiktok" href="https://www.tiktok.com/@jackieriddle4" target="_blank">TikTok</a>
+<!-- Topbar -->
+<div class="topbar">
+<div>A Shore Thing Cleaning Solutions</div>
+<a href="tel:6094128005">Call or Text: 609-412-8005</a>
 </div>
-</header>
 
-<section>
+<!-- Hero -->
+<div class="hero">
+<h1>Professional House Cleaning Services</h1>
+<p>Affordable. Reliable. Woman-Owned</p>
+<button class="cta-btn" onclick="document.getElementById('quote').scrollIntoView({behavior:'smooth'})">Get a Free Quote</button>
+</div>
+
+<!-- Services -->
+<div class="section">
+<h2>Our Cleaning Services</h2>
+<div class="services">
+<div class="card"><h3>Standard Cleaning</h3><p>Kitchen & bathrooms, dusting & wiping surfaces, vacuum & mop, trash removal.</p><p><strong>$95–$225+</strong></p></div>
+<div class="card"><h3>Deep Cleaning</h3><p>Includes everything in standard cleaning plus baseboards, window sills, doors, cabinet fronts, extra attention to detail.</p><p><strong>$150–$325+</strong></p></div>
+<div class="card"><h3>Move-In / Move-Out</h3><p>Everything in prior packages plus inside fridge & oven, kitchen/bathroom sanitation.</p><p><strong>Starting at $250+</strong></p></div>
+</div>
+</div>
+
+<!-- Why Hire Us -->
+<div class="section">
+<h2>Why Hire Us?</h2>
+<div class="why">
+<div><h3>Affordable Cleaning</h3><p>Competitive pricing for real families.</p></div>
+<div><h3>No Contracts</h3><p>Book as needed, no long-term commitments.</p></div>
+<div><h3>Easy Cancellation</h3><p>Flexible scheduling that works around your life.</p></div>
+<div><h3>Priority Scheduling</h3><p>Regular clients get priority booking.</p></div>
+</div>
+</div>
+
+<!-- FAQ -->
+<div class="section">
+<h2>Frequently Asked Questions</h2>
+<div class="faq">
+<div class="faq-item" onclick="toggleFAQ(this)"><h4>Do I need to provide cleaning supplies?</h4><p>We bring all necessary supplies, but can use yours if requested.</p></div>
+<div class="faq-item" onclick="toggleFAQ(this)"><h4>How long does cleaning take?</h4><p>Time depends on home size and service type, typically 2–5 hours.</p></div>
+<div class="faq-item" onclick="toggleFAQ(this)"><h4>Do I need to be home during service?</h4><p>Not necessarily; we can coordinate key pickup or lockbox access.</p></div>
+<div class="faq-item" onclick="toggleFAQ(this)"><h4>How do I pay?</h4><p>We accept Cash App, Venmo, or other options provided on order forms.</p></div>
+</div>
+</div>
+
+<!-- Before & After -->
+<div class="section before-after-section">
+<h2>Before & After</h2>
+<div class="compare-container">
+<img src="15 corner bottom before 1.JPG">
+<div class="overlay"><img src="7 corner bottom after 1.JPG"></div>
+<div class="slider"></div>
+</div>
+<div class="compare-container">
+<img src="nasty before.JPG">
+<div class="overlay"><img src="nasty after.JPG"></div>
+<div class="slider"></div>
+</div>
+<div class="compare-container">
+<img src="sink 1 before.JPG">
+<div class="overlay"><img src="sink after 1.JPG"></div>
+<div class="slider"></div>
+</div>
+</div>
+
+<!-- Gallery B-roll -->
+<div class="section">
 <h2>Our Work</h2>
 <div class="gallery-grid">
-<img src="13 right side bed clean.JPG">
-<img src="4 corner after 1.JPG">
-<img src="1 clean closet floor.JPG">
-<img src="10 corner bottom after 2.JPG">
-<img src="11 window sill bottom after.JPG">
+<img src="happy-family-livingroom.jpg">
+<img src="clean-kitchen.jpg">
+<img src="bedroom-clean.jpg">
+<img src="family-cleaning.jpg">
+<img src="living-room.jpg">
 </div>
-</section>
-
-<section>
-<h2>Before & After</h2>
-
-<div class="compare-container">
-<img src="7 corner bottom after 1.JPG">
-<div class="overlay"><img src="15 corner bottom before 1.JPG"></div>
-<div class="slider"></div>
 </div>
 
-<div class="compare-container">
-<img src="nasty after.JPG">
-<div class="overlay"><img src="nasty before.JPG"></div>
-<div class="slider"></div>
-</div>
+<!-- Order Forms -->
+<div class="section" id="quote">
+<h2>Order / Request Service</h2>
 
-<div class="compare-container">
-<img src="sink after 1.JPG">
-<div class="overlay"><img src="sink 1 before.JPG"></div>
-<div class="slider"></div>
-</div>
-
-</section>
-
-<!-- CHOCOLATE POPUP -->
-<div id="chocolatePopup" class="popup">
-<div class="popup-content">
-<span class="close-popup" onclick="closeChocolate()">&times;</span>
-<h2>Dubai Chocolate Order</h2>
-
-<form id="chocolateForm">
-
-<label>Dubai Cookie ($5)</label>
-<input type="number" id="cookieQty" min="0" value="0">
-
-<label>Small Bar ($10)</label>
-<input type="number" id="smallQty" min="0" value="0">
-
-<label>Large Bar ($15)</label>
-<input type="number" id="largeQty" min="0" value="0">
-
-<select id="deliverySelect">
-<option value="0">Pickup</option>
-<option value="10">Delivery ($10 if order ≤ $50)</option>
+<!-- Cleaning Order Form -->
+<div class="order-form">
+<h3>Cleaning Service Request</h3>
+<form onsubmit="sendCleaningOrder(event)">
+<select required>
+<option value="">Select Service</option>
+<option>Standard Cleaning</option>
+<option>Deep Cleaning</option>
+<option>Move-In/Move-Out</option>
 </select>
-
-<input type="tel" placeholder="Phone Number">
-<input type="text" placeholder="Requested By Date">
-
-<div class="total-display">Total: $<span id="chocoTotal">0</span></div>
-
-<button type="button" class="submit-btn" onclick="payChocolate()">Pay Online</button>
-<button type="submit" class="submit-btn">Send Order</button>
-
-</form>
-</div>
-</div>
-
-<!-- CLEANING POPUP -->
-<div id="cleaningPopup" class="popup">
-<div class="popup-content">
-<span class="close-popup" onclick="closeCleaning()">&times;</span>
-<h2>Cleaning Request</h2>
-
-<form>
-<select id="cleanPackage">
-<option value="110">Standard Cleaning</option>
-<option value="200">Deep Cleaning</option>
-<option value="250">Move In/Out</option>
-</select>
-
-<input type="tel" placeholder="Phone Number">
-<input type="text" placeholder="Address">
-<input type="text" placeholder="Availability">
+<input type="text" placeholder="Full Name" required>
+<input type="tel" placeholder="Phone Number" required>
+<input type="text" placeholder="Address (optional)">
+<input type="text" placeholder="Preferred Date / Availability" required>
 <textarea placeholder="Additional Requests"></textarea>
+<div class="payment-section">
+<a href="#" class="pay-btn cashapp">Cash App</a>
+<a href="#" class="pay-btn venmo">Venmo</a>
+</div>
+<button type="submit" class="submit-btn">Submit Cleaning Order</button>
+</form>
+</div>
 
-<div class="total-display">Estimated Total: $<span id="cleanTotal">110</span></div>
-
-<button class="submit-btn">Send Request</button>
+<!-- Chocolate Order Form -->
+<div class="order-form">
+<h3>Dubai Chocolate Order</h3>
+<form onsubmit="sendChocolateOrder(event)">
+<select id="productSelect" onchange="updateQuantityOptions()" required>
+<option value="">Select Product</option>
+<option value="cookie">Dubai Cookie - $5</option>
+<option value="small">Small Bar - $10</option>
+<option value="large">Large Bar - $15</option>
+</select>
+<select id="quantitySelect" required>
+<option value="">Quantity</option>
+<option value="1">1</option>
+</select>
+<input type="tel" placeholder="Phone Number" required>
+<input type="text" placeholder="Pickup / Delivery Note">
+<input type="text" placeholder="Request By Date" required>
+<div class="payment-section">
+<a href="#" class="pay-btn cashapp">Cash App</a>
+<a href="#" class="pay-btn venmo">Venmo</a>
+</div>
+<button type="submit" class="submit-btn">Submit Chocolate Order</button>
 </form>
 </div>
 </div>
 
-<div class="seal">
-Woman-Owned<br>Small Business
-</div>
+<!-- Floating Mobile Button -->
+<div class="floating-btn" onclick="document.getElementById('quote').scrollIntoView({behavior:'smooth'})">Book Now</div>
 
-<div class="floating-book" onclick="openCleaning()">Book Now</div>
+<!-- Woman-Owned Seal -->
+<div class="seal"><span>Woman-Owned<br>Small Business</span></div>
 
 <script>
-const stripe = Stripe("YOUR_STRIPE_PUBLIC_KEY");
+/* FAQ toggle */
+function toggleFAQ(item){ let p=item.querySelector('p'); p.style.display=p.style.display==='block'?'none':'block'; }
 
-function openCleaning(){cleaningPopup.style.display="flex";}
-function closeCleaning(){cleaningPopup.style.display="none";}
-function openChocolate(){chocolatePopup.style.display="flex";}
-function closeChocolate(){chocolatePopup.style.display="none";}
-window.onclick=e=>{if(e.target.classList.contains("popup"))e.target.style.display="none";}
-
-/* Chocolate calculator */
-function calculateChocolate(){
-let total =
-(cookieQty.value*5) +
-(smallQty.value*10) +
-(largeQty.value*15);
-
-if(deliverySelect.value==10 && total<=50 && total>0) total+=10;
-
-chocoTotal.innerText=total;
-}
-cookieQty.oninput=calculateChocolate;
-smallQty.oninput=calculateChocolate;
-largeQty.oninput=calculateChocolate;
-deliverySelect.onchange=calculateChocolate;
-
-/* Cleaning */
-cleanPackage.onchange=()=>{cleanTotal.innerText=cleanPackage.value;};
-
-function payChocolate(){
-stripe.redirectToCheckout({
-lineItems:[{price_data:{currency:'usd',product_data:{name:'Dubai Chocolate Order'},unit_amount:chocoTotal.innerText*100},quantity:1}],
-mode:'payment',
-successUrl:window.location.href,
-cancelUrl:window.location.href
+/* Before/After Slider */
+document.querySelectorAll('.compare-container').forEach(container=>{
+const slider=container.querySelector('.slider');
+const overlay=container.querySelector('.overlay');
+function setInitial(){ overlay.style.width=container.offsetWidth/2+'px'; slider.style.left=container.offsetWidth/2+'px'; }
+window.addEventListener('load', setInitial);
+window.addEventListener('resize', setInitial);
+let dragging=false;
+slider.addEventListener('mousedown',()=>dragging=true);
+document.addEventListener('mouseup',()=>dragging=false);
+document.addEventListener('mousemove',(e)=>{
+if(!dragging)return;
+let rect=container.getBoundingClientRect();
+let x=e.clientX-rect.left;
+x=Math.max(0,Math.min(x,rect.width));
+overlay.style.width=x+'px';
+slider.style.left=x+'px';
 });
-}
+});
+
+/* Order Forms */
+function sendCleaningOrder(e){ e.preventDefault(); alert("Cleaning order submitted!"); }
+function sendChocolateOrder(e){ e.preventDefault(); alert("Chocolate order submitted!"); }
+
+/* Chocolate quantity options */
+function updateQuantityOptions(){ let qty=document.getElementById('quantitySelect'); qty.innerHTML=''; for(let i=1;i<=10;i++){ let opt=document.createElement('option'); opt.value=i; opt.innerText=i; qty.appendChild(opt); } }
 </script>
 
 </body>
