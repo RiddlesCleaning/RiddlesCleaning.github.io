@@ -30,30 +30,17 @@ a { text-decoration:none; }
 .card:hover { transform: translateY(-5px); box-shadow:0 10px 25px rgba(0,0,0,.15); }
 .card h3 { color:#0d3b66; margin-bottom:15px; font-family: 'Playfair Display', serif; }
 
-/* Why Hire Us */
-.why { display:grid; grid-template-columns:repeat(auto-fit,minmax(250px,1fr)); gap:30px; text-align:center; }
-.why div { background:white; padding:25px; border-radius:12px; box-shadow:0 5px 20px rgba(0,0,0,.1); }
-.why h3 { color:#0d3b66; margin-bottom:10px; font-family: 'Playfair Display', serif; }
+/* Why Hire Us & Tiles */
+.why, .tips { display:grid; grid-template-columns:repeat(auto-fit,minmax(250px,1fr)); gap:30px; text-align:center; }
+.why div, .tips div { background:white; padding:25px; border-radius:12px; box-shadow:0 5px 20px rgba(0,0,0,.1); }
+.why h3, .tips h3 { color:#0d3b66; margin-bottom:10px; font-family: 'Playfair Display', serif; }
 
 /* FAQ */
-.faq { max-width:900px; margin: auto; }
+.faq { max-width:900px; margin:auto; }
 .faq-item { background:white; padding:20px 25px; margin-bottom:10px; border-radius:8px; box-shadow:0 5px 20px rgba(0,0,0,.05); cursor:pointer; transition:all 0.3s; }
 .faq-item:hover { transform:scale(1.02); }
 .faq-item h4 { margin:0; font-family: 'Playfair Display', serif; }
 .faq-item p { display:none; margin-top:10px; }
-
-/* Forms */
-.order-form { background:white; padding:40px; border-radius:12px; box-shadow:0 5px 20px rgba(0,0,0,.1); max-width:600px; margin:40px auto; display:none; }
-.order-form input, .order-form select, .order-form textarea { width:100%; padding:12px; margin:10px 0; border-radius:5px; border:1px solid #ccc; }
-.submit-btn { background:#0d3b66; color:white; padding:14px; border:none; border-radius:6px; cursor:pointer; font-size:16px; width:100%; transition:all 0.3s; }
-.submit-btn:hover { background:#174b7c; transform:scale(1.03); }
-
-/* Bundle Section */
-.bundle-description { text-align:center; margin-bottom:20px; }
-.bundle-form { display:block; margin:auto; max-width:500px; }
-
-/* Cleaning Tips Section */
-.cleaning-tips { display:grid; grid-template-columns:repeat(auto-fit,minmax(250px,1fr)); gap:30px; text-align:center; }
 
 /* Before/After Slider */
 .before-after-section { padding:60px 20px; text-align:center; }
@@ -72,12 +59,17 @@ a { text-decoration:none; }
 .floating-btn { position:fixed; bottom:20px; right:20px; background:#a29bfe; color:white; padding:15px 20px; border-radius:50px; font-weight:bold; cursor:pointer; box-shadow:0 5px 20px rgba(0,0,0,.3); z-index:1000; animation: pulse 2s infinite; }
 @keyframes pulse { 0%,100% { transform:scale(1); } 50% { transform:scale(1.05); } }
 
-/* Woman-Owned Seal */
-.seal { margin:60px auto; width:160px; height:160px; border-radius:50%; background:radial-gradient(circle, #ffd700 0%, #daa520 100%); display:flex; justify-content:center; align-items:center; color:#222; font-weight:bold; font-family:'Georgia', serif; text-align:center; box-shadow:0 5px 20px rgba(0,0,0,.3); border:3px solid #b8860b; letter-spacing:1px; }
-.seal span { display:block; padding:10px; font-size:18px; }
+/* Woman-Owned Seal (more official) */
+.seal { margin:60px auto; width:180px; height:180px; border-radius:50%; background:radial-gradient(circle, #ffd700 0%, #b8860b 100%); display:flex; justify-content:center; align-items:center; color:black; font-weight:bold; font-family:'Playfair Display', serif; text-align:center; box-shadow:0 5px 25px rgba(0,0,0,.4); border:3px solid #444; }
+.seal span { display:block; padding:10px; font-size:18px; text-transform:uppercase; }
 
 /* Buttons Styling */
 .btn { padding:12px 20px; border-radius:6px; font-weight:bold; cursor:pointer; text-decoration:none; display:inline-flex; align-items:center; justify-content:center; margin:5px; border:2px solid white; transition:all 0.3s; }
+.btn-call { background:#28a745; color:white; border:2px solid white; }
+.btn-facebook { background:#1877F2; color:white; border:2px solid white; }
+.btn-tiktok { background:#111; color:white; border:2px solid white; }
+.btn-chocolate { background:linear-gradient(45deg,#d4af37,#8B4513); color:white; border:2px solid white; }
+.btn-custom { background:#6f42c1; color:white; border:2px solid white; }
 .btn-book { background:#a29bfe; color:white; border:2px solid #3498db; animation: shimmer 2s infinite; }
 @keyframes shimmer { 0%{background-position:0 0;} 100%{background-position:100% 0;} }
 
@@ -86,6 +78,11 @@ a { text-decoration:none; }
 .cashapp { background:#00C244; }
 .venmo { background:#3D95CE; }
 .payment-section { display:flex; gap:10px; margin:10px 0; }
+
+/* Modal Form */
+.modal { display:none; position:fixed; z-index:2000; left:0; top:0; width:100%; height:100%; overflow:auto; background:rgba(0,0,0,0.6); }
+.modal-content { background:white; margin:5% auto; padding:40px; border-radius:12px; max-width:600px; position:relative; }
+.close { position:absolute; top:15px; right:20px; font-size:28px; font-weight:bold; color:#333; cursor:pointer; }
 </style>
 </head>
 <body>
@@ -100,7 +97,7 @@ a { text-decoration:none; }
 <div class="hero">
 <h1>Professional Residential Cleaning Services</h1>
 <p>Affordable. Reliable. Priority Cleaning</p>
-<button class="cta-btn" onclick="toggleCleaningForm()">Get a Free Quote</button>
+<button class="cta-btn" id="bookNowBtn">Book Now</button>
 </div>
 
 <!-- Services -->
@@ -109,51 +106,53 @@ a { text-decoration:none; }
 <div class="services">
 <div class="card">
 <h3>Standard Cleaning</h3>
-<p>Kitchen & bathrooms, dusting/wiping surfaces, vacuum & mop, trash removal.</p>
-<p><strong>Small homes: $100-150<br>Medium homes: $150-200<br>Large homes: $200+</strong></p>
+<p>Kitchen & bathrooms, dusting & wiping surfaces, vacuum & mop, trash removal.</p>
+<p><strong>Small homes $100–150 | Medium $150–200 | Large $200+</strong></p>
 </div>
 <div class="card">
 <h3>Deep Cleaning</h3>
-<p>Includes everything in standard cleaning package PLUS: baseboards & window sills, doors & cabinet fronts, extra attention to detail.</p>
-<p><strong>Small home: $150-225<br>Medium/Large homes: $200-300+</strong></p>
+<p>Includes everything in standard package PLUS: baseboards & window sills, doors & cabinet fronts, extra attention to detail.</p>
+<p><strong>Small home $150–225 | Medium/Large $200–300+</strong></p>
 </div>
 <div class="card">
 <h3>Move-In / Move-Out</h3>
-<p>Includes everything in standard and deep cleaning package PLUS: in/out fridge & stove sanitation, kitchen & bathroom sanitation.</p>
-<p><strong>Price depends on size and condition. Starting at $250+</strong></p>
+<p>Includes everything in standard and deep cleaning package PLUS: in & out fridge & stove sanitation, kitchen and bathroom sanitation.</p>
+<p><strong>Price depends on size & condition | Starting at $250+</strong></p>
 </div>
 </div>
 </div>
 
-<!-- Build Your Bundle Section -->
+<!-- Build Your Bundle -->
 <div class="section">
-<h2>Build Your Own Bundle</h2>
-<div class="bundle-description">
-<p>You pick what YOU need most</p>
-<p>Fast & Budget friendly</p>
-<p>Perfect for before Parties and events</p>
-</div>
-<div class="bundle-form order-form" id="bundleForm">
-<form onsubmit="sendBundleOrder(event)">
+<h2>Build Your Bundle</h2>
+<p style="text-align:center;">[IMAGE PLACEHOLDER]</p>
+<div class="order-form" style="max-width:600px; margin:auto;">
+<form onsubmit="sendCleaningOrder(event)">
 <select multiple required>
 <option>Bathrooms</option>
-<option>Kitchen surfaces</option>
+<option>Kitchen Surfaces</option>
 <option>Floors</option>
-<option>Living room tidy</option>
-<option>Light dusting</option>
+<option>Living Room Tidy</option>
+<option>Light Dusting</option>
 <option>Laundry</option>
 </select>
+<div>
+<ul>
+<li>You pick what YOU need most</li>
+<li>Fast & Budget friendly</li>
+<li>Perfect for before Parties and events</li>
+</ul>
+</div>
 <input type="text" placeholder="Full Name" required>
 <input type="tel" placeholder="Phone Number" required>
-<input type="text" placeholder="Address" required>
+<input type="text" placeholder="Address">
 <input type="text" placeholder="Preferred Date / Availability" required>
 <textarea placeholder="Additional Requests"></textarea>
-<p><strong>Total Bundle Price: $100</strong></p>
 <div class="payment-section">
 <a href="#" class="pay-btn cashapp">Cash App</a>
 <a href="#" class="pay-btn venmo">Venmo</a>
 </div>
-<button type="submit" class="submit-btn">Submit Bundle Order</button>
+<button type="submit" class="submit-btn">Submit Bundle Order ($100)</button>
 </form>
 </div>
 </div>
@@ -169,14 +168,25 @@ a { text-decoration:none; }
 </div>
 </div>
 
-<!-- Cleaning Tips Section -->
+<!-- Cleaning Tips -->
 <div class="section">
 <h2>Cleaning Tips</h2>
-<div class="cleaning-tips">
-<div><h3>Tip 1</h3><p>Clean top-to-bottom and left-to-right to avoid re-dirtying surfaces.</p></div>
-<div><h3>Tip 2</h3><p>Use microfiber cloths—they trap dirt better than cotton rags.</p></div>
-<div><h3>Tip 3</h3><p>Let cleaning solutions sit briefly for better sanitation on tough spots.</p></div>
-<div><h3>Tip 4</h3><p>Vacuum before mopping for a thorough clean.</p></div>
+<div class="tips">
+<div><h3>Tip 1</h3><p>Always clean top to bottom to avoid re-dusting surfaces.</p></div>
+<div><h3>Tip 2</h3><p>Use microfiber cloths to capture dust effectively.</p></div>
+<div><h3>Tip 3</h3><p>Regularly sanitize high-touch surfaces to prevent germ spread.</p></div>
+<div><h3>Tip 4</h3><p>Declutter before cleaning to save time and energy.</p></div>
+</div>
+</div>
+
+<!-- FAQ -->
+<div class="section">
+<h2>Frequently Asked Questions</h2>
+<div class="faq">
+<div class="faq-item" onclick="toggleFAQ(this)"><h4>Do I need to provide cleaning supplies?</h4><p>We bring all necessary supplies, but can use yours if requested.</p></div>
+<div class="faq-item" onclick="toggleFAQ(this)"><h4>How long does cleaning take?</h4><p>Time depends on home size and service type, typically 2–5 hours.</p></div>
+<div class="faq-item" onclick="toggleFAQ(this)"><h4>Do I need to be home during service?</h4><p>Not necessarily; we can coordinate key pickup or lockbox access.</p></div>
+<div class="faq-item" onclick="toggleFAQ(this)"><h4>How do I pay?</h4><p>We accept Cash App, Venmo, or other options provided on order forms.</p></div>
 </div>
 </div>
 
@@ -212,8 +222,16 @@ a { text-decoration:none; }
 </div>
 </div>
 
-<!-- Cleaning Order Form -->
-<div class="order-form" id="cleaningForm">
+<!-- Floating Mobile Button -->
+<div class="floating-btn" id="floatingBtn">Book Now</div>
+
+<!-- Woman-Owned Seal -->
+<div class="seal"><span>Woman-Owned<br>Small Business</span></div>
+
+<!-- Cleaning Order Modal -->
+<div id="cleaningModal" class="modal">
+<div class="modal-content">
+<span class="close" id="closeModal">&times;</span>
 <h3>Cleaning Service Request</h3>
 <form onsubmit="sendCleaningOrder(event)">
 <select required>
@@ -234,12 +252,7 @@ a { text-decoration:none; }
 <button type="submit" class="submit-btn">Submit Cleaning Order</button>
 </form>
 </div>
-
-<!-- Floating Mobile Button -->
-<div class="floating-btn" onclick="toggleCleaningForm()">Book Now</div>
-
-<!-- Woman-Owned Seal -->
-<div class="seal"><span>Woman-Owned<br>Small Business</span></div>
+</div>
 
 <script>
 /* FAQ toggle */
@@ -265,16 +278,18 @@ slider.style.left=x+'px';
 });
 });
 
-/* Form toggle */
-function toggleCleaningForm(){
-  const form=document.getElementById('cleaningForm');
-  if(form.style.display==='block'){ form.style.display='none'; } 
-  else{ form.style.display='block'; form.scrollIntoView({behavior:'smooth'}); }
-}
+/* Cleaning Order Modal */
+const modal=document.getElementById('cleaningModal');
+const btn=document.getElementById('bookNowBtn');
+const floating=document.getElementById('floatingBtn');
+const span=document.getElementById('closeModal');
+btn.onclick=()=>{modal.style.display='block'; window.scrollTo(0,0);}
+floating.onclick=()=>{modal.style.display='block'; window.scrollTo(0,0);}
+span.onclick=()=>{modal.style.display='none';}
+window.onclick=function(e){ if(e.target==modal){ modal.style.display='none'; }}
 
 /* Order Forms */
 function sendCleaningOrder(e){ e.preventDefault(); alert("Cleaning order submitted!"); }
-function sendBundleOrder(e){ e.preventDefault(); alert("Bundle order submitted!"); }
 </script>
 
 </body>
