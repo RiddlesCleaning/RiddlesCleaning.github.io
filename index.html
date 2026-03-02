@@ -29,12 +29,23 @@ a { text-decoration:none; }
 .card { background:white; padding:30px; border-radius:12px; box-shadow:0 5px 20px rgba(0,0,0,.1); transition:all 0.3s; }
 .card:hover { transform: translateY(-5px); box-shadow:0 10px 25px rgba(0,0,0,.15); }
 .card h3 { color:#0d3b66; margin-bottom:15px; font-family: 'Playfair Display', serif; }
-.card ul { margin:0; padding-left:20px; }
 
 /* Why Hire Us */
 .why { display:grid; grid-template-columns:repeat(auto-fit,minmax(250px,1fr)); gap:30px; text-align:center; }
 .why div { background:white; padding:25px; border-radius:12px; box-shadow:0 5px 20px rgba(0,0,0,.1); }
 .why h3 { color:#0d3b66; margin-bottom:10px; font-family: 'Playfair Display', serif; }
+
+/* Cleaning Tips Section */
+.cleaning-tips { display:grid; grid-template-columns:repeat(auto-fit,minmax(250px,1fr)); gap:30px; text-align:center; margin-top:60px; }
+.cleaning-tips div { background:white; padding:25px; border-radius:12px; box-shadow:0 5px 20px rgba(0,0,0,.1); }
+.cleaning-tips h3 { color:#0d3b66; margin-bottom:10px; font-family: 'Playfair Display', serif; }
+
+/* Build Your Bundle Section */
+.bundle-section { display:grid; grid-template-columns:repeat(auto-fit,minmax(300px,1fr)); gap:30px; text-align:center; margin-top:60px; }
+.bundle-section div { background:white; padding:25px; border-radius:12px; box-shadow:0 5px 20px rgba(0,0,0,.1); }
+.bundle-section h3 { color:#0d3b66; margin-bottom:10px; font-family: 'Playfair Display', serif; }
+.bundle-section ul { text-align:left; padding-left:20px; margin-top:10px; }
+.bundle-section li { margin-bottom:8px; }
 
 /* FAQ */
 .faq { max-width:900px; margin: auto; }
@@ -43,8 +54,8 @@ a { text-decoration:none; }
 .faq-item h4 { margin:0; font-family: 'Playfair Display', serif; }
 .faq-item p { display:none; margin-top:10px; }
 
-/* Forms */
-.quote-form, .order-form { background:white; padding:40px; border-radius:12px; box-shadow:0 5px 20px rgba(0,0,0,.1); max-width:600px; margin:40px auto; display:none; }
+/* Quote Form */
+.quote-form, .order-form { background:white; padding:40px; border-radius:12px; box-shadow:0 5px 20px rgba(0,0,0,.1); max-width:600px; margin:40px auto; }
 .quote-form input, .quote-form select, .quote-form textarea,
 .order-form input, .order-form select, .order-form textarea { width:100%; padding:12px; margin:10px 0; border-radius:5px; border:1px solid #ccc; }
 .submit-btn { background:#0d3b66; color:white; padding:14px; border:none; border-radius:6px; cursor:pointer; font-size:16px; width:100%; transition:all 0.3s; }
@@ -67,15 +78,16 @@ a { text-decoration:none; }
 .floating-btn { position:fixed; bottom:20px; right:20px; background:#a29bfe; color:white; padding:15px 20px; border-radius:50px; font-weight:bold; cursor:pointer; box-shadow:0 5px 20px rgba(0,0,0,.3); z-index:1000; animation: pulse 2s infinite; }
 @keyframes pulse { 0%,100% { transform:scale(1); } 50% { transform:scale(1.05); } }
 
-/* Professional Seal */
-.seal { margin:60px auto; width:160px; height:160px; border-radius:50%; background:radial-gradient(circle, #ffd700 0%, #b8860b 100%); display:flex; justify-content:center; align-items:center; color:black; font-weight:bold; font-family:'Playfair Display', serif; text-align:center; box-shadow:0 5px 15px rgba(0,0,0,.5); border:3px solid #222; }
-.seal span { display:block; padding:15px; }
+/* Woman-Owned Seal */
+.seal { margin:60px auto; width:150px; height:150px; border-radius:50%; background:radial-gradient(circle, #ffd700 0%, #b8860b 100%); display:flex; justify-content:center; align-items:center; color:black; font-weight:bold; font-family:'Playfair Display', serif; text-align:center; box-shadow:0 5px 15px rgba(0,0,0,.3); font-size:16px; }
+.seal span { display:block; padding:10px; }
 
-/* Buttons */
+/* Buttons Styling */
 .btn { padding:12px 20px; border-radius:6px; font-weight:bold; cursor:pointer; text-decoration:none; display:inline-flex; align-items:center; justify-content:center; margin:5px; border:2px solid white; transition:all 0.3s; }
 .btn-call { background:#28a745; color:white; border:2px solid white; }
 .btn-facebook { background:#1877F2; color:white; border:2px solid white; }
 .btn-tiktok { background:#111; color:white; border:2px solid white; }
+.btn-chocolate { background:linear-gradient(45deg,#d4af37,#8B4513); color:white; border:2px solid white; }
 .btn-custom { background:#6f42c1; color:white; border:2px solid white; }
 .btn-book { background:#a29bfe; color:white; border:2px solid #3498db; animation: shimmer 2s infinite; }
 @keyframes shimmer { 0%{background-position:0 0;} 100%{background-position:100% 0;} }
@@ -85,17 +97,6 @@ a { text-decoration:none; }
 .cashapp { background:#00C244; }
 .venmo { background:#3D95CE; }
 .payment-section { display:flex; gap:10px; margin:10px 0; }
-
-/* Build Your Bundle */
-.bundle-options { text-align:left; margin-bottom:20px; }
-.bundle-options label { display:block; margin-bottom:10px; }
-.bundle-description { text-align:left; margin-top:20px; }
-.bundle-description li { margin-bottom:8px; }
-
-/* Cleaning Tips */
-.cleaning-tips { display:grid; grid-template-columns:repeat(auto-fit,minmax(250px,1fr)); gap:30px; text-align:center; }
-.cleaning-tips div { background:white; padding:25px; border-radius:12px; box-shadow:0 5px 20px rgba(0,0,0,.1); }
-.cleaning-tips h3 { color:#0d3b66; margin-bottom:10px; font-family: 'Playfair Display', serif; }
 </style>
 </head>
 <body>
@@ -110,7 +111,7 @@ a { text-decoration:none; }
 <div class="hero">
 <h1>Professional Residential Cleaning Service</h1>
 <p>Affordable. Reliable. Priority Cleaning</p>
-<button class="cta-btn" onclick="document.getElementById('quote').scrollIntoView({behavior:'smooth'}); showForm()">Get a Free Quote</button>
+<button class="cta-btn" onclick="showForm()">Get a Free Quote</button>
 </div>
 
 <!-- Services -->
@@ -119,71 +120,55 @@ a { text-decoration:none; }
 <div class="services">
 <div class="card">
 <h3>Standard Cleaning</h3>
-<ul>
-<li>Kitchen & bathroom</li>
-<li>Dusting & wiping surfaces</li>
-<li>Vacuum & mop</li>
-<li>Trash removal</li>
-</ul>
-<p><strong>Small Homes: $100–150</strong><br>
-<strong>Medium Homes: $150–200</strong><br>
-<strong>Large Homes: $200+</strong></p>
+<p><strong>Small Homes:</strong> $100–150<br>
+<strong>Medium Homes:</strong> $150–200<br>
+<strong>Large Homes:</strong> $200+</p>
+<p>Kitchen & bathrooms, dusting & wiping surfaces, vacuum & mop, trash removal.</p>
 </div>
 <div class="card">
 <h3>Deep Cleaning</h3>
-<ul>
-<li>Includes everything in Standard Cleaning package</li>
-<li>Baseboards & window sills</li>
-<li>Doors & cabinet fronts</li>
-<li>Extra attention to detail</li>
-</ul>
-<p><strong>Small Homes: $150–225</strong><br>
-<strong>Medium/Large Homes: $200–300+</strong></p>
+<p><strong>Small Homes:</strong> $150–225<br>
+<strong>Medium/Large Homes:</strong> $200–300+</p>
+<p>Includes everything in standard cleaning plus baseboards, window sills, doors, cabinet fronts, extra attention to detail.</p>
 </div>
 <div class="card">
 <h3>Move-In / Move-Out</h3>
-<ul>
-<li>Includes everything in Standard and Deep Cleaning packages</li>
-<li>In & out fridge & stove sanitation</li>
-<li>Kitchen and bathroom sanitation</li>
-</ul>
-<p>Price depends on size and condition.<br><strong>Starting at $250+</strong></p>
+<p><strong>Starting at $250+</strong><br>
+Price depends on size and condition.</p>
+<p>Includes everything in standard and deep cleaning plus inside fridge & oven, full kitchen and bathroom sanitation.</p>
 </div>
 </div>
 </div>
 
 <!-- Build Your Bundle -->
-<div class="section">
-<h2>Build Your Own Bundle</h2>
-<img src="placeholder.jpg" alt="Bundle Image" style="width:100%; max-width:600px; margin:auto; display:block; border-radius:12px; margin-bottom:20px;">
-<div class="order-form" id="bundleForm">
-<h3>Bundle Service Request ($100)</h3>
-<form onsubmit="sendBundleOrder(event)">
-<div class="bundle-options">
-<label><input type="checkbox" name="bundle" value="Bathrooms"> Bathrooms</label>
-<label><input type="checkbox" name="bundle" value="Kitchen Surfaces"> Kitchen Surfaces</label>
-<label><input type="checkbox" name="bundle" value="Floors"> Floors</label>
-<label><input type="checkbox" name="bundle" value="Living Room Tidy"> Living Room Tidy</label>
-<label><input type="checkbox" name="bundle" value="Light Dusting"> Light Dusting</label>
-<label><input type="checkbox" name="bundle" value="Laundry"> Laundry</label>
-</div>
+<div class="section bundle-section">
+<h2>Build Your Bundle</h2>
+<div>
+<h3>Customize Your Cleaning</h3>
+<ul>
+<li>You pick what YOU need most</li>
+<li>Fast & Budget friendly</li>
+<li>Perfect for before Parties and events</li>
+</ul>
+<form onsubmit="sendCleaningOrder(event)">
+<select multiple size="3" required>
+<option>Bathrooms</option>
+<option>Kitchen Surfaces</option>
+<option>Floors</option>
+<option>Living Room Tidy</option>
+<option>Light Dusting</option>
+<option>Laundry</option>
+</select>
 <input type="text" placeholder="Full Name" required>
 <input type="tel" placeholder="Phone Number" required>
-<input type="text" placeholder="Address" required>
+<input type="text" placeholder="Address">
 <input type="text" placeholder="Preferred Date / Availability" required>
 <textarea placeholder="Additional Requests"></textarea>
 <div class="payment-section">
 <a href="#" class="pay-btn cashapp">Cash App</a>
 <a href="#" class="pay-btn venmo">Venmo</a>
 </div>
-<button type="submit" class="submit-btn">Submit Bundle Order</button>
-<div class="bundle-description">
-<ul>
-<li>You pick what YOU need most</li>
-<li>Fast & Budget friendly</li>
-<li>Perfect for before Parties and events</li>
-</ul>
-</div>
+<button type="submit" class="submit-btn">Submit Cleaning Order</button>
 </form>
 </div>
 </div>
@@ -200,14 +185,12 @@ a { text-decoration:none; }
 </div>
 
 <!-- Cleaning Tips -->
-<div class="section">
+<div class="section cleaning-tips">
 <h2>Cleaning Tips</h2>
-<div class="cleaning-tips">
-<div><h3>Pro Tip 1</h3><p>Use microfiber cloths for dusting—they trap dirt without spreading it.</p></div>
-<div><h3>Pro Tip 2</h3><p>Clean top-to-bottom to avoid re-cleaning surfaces.</p></div>
-<div><h3>Pro Tip 3</h3><p>Use natural cleaners like vinegar and baking soda for safe, effective results.</p></div>
-<div><h3>Pro Tip 4</h3><p>Vacuum before mopping to remove loose debris first.</p></div>
-</div>
+<div><h3>Pro Tip 1</h3><p>Clean from top to bottom to avoid re-dusting lower surfaces.</p></div>
+<div><h3>Pro Tip 2</h3><p>Use microfiber cloths to trap dust and reduce chemical use.</p></div>
+<div><h3>Pro Tip 3</h3><p>Let cleaning solutions sit for a few minutes for tougher grime.</p></div>
+<div><h3>Pro Tip 4</h3><p>Regular maintenance keeps deep cleaning needs minimal.</p></div>
 </div>
 
 <!-- FAQ -->
@@ -253,12 +236,11 @@ a { text-decoration:none; }
 </div>
 </div>
 
-<!-- Order Forms -->
+<!-- Order Form -->
 <div class="section" id="quote">
 <h2>Order / Request Service</h2>
 
-<!-- Cleaning Order Form -->
-<div class="order-form" id="cleaningForm">
+<div class="order-form" id="cleaningForm" style="display:none;">
 <h3>Cleaning Service Request</h3>
 <form onsubmit="sendCleaningOrder(event)">
 <select required>
@@ -269,7 +251,7 @@ a { text-decoration:none; }
 </select>
 <input type="text" placeholder="Full Name" required>
 <input type="tel" placeholder="Phone Number" required>
-<input type="text" placeholder="Address" required>
+<input type="text" placeholder="Address">
 <input type="text" placeholder="Preferred Date / Availability" required>
 <textarea placeholder="Additional Requests"></textarea>
 <div class="payment-section">
@@ -279,9 +261,10 @@ a { text-decoration:none; }
 <button type="submit" class="submit-btn">Submit Cleaning Order</button>
 </form>
 </div>
+</div>
 
 <!-- Floating Mobile Button -->
-<div class="floating-btn" onclick="document.getElementById('cleaningForm').style.display='block'; document.getElementById('cleaningForm').scrollIntoView({behavior:'smooth'})">Book Now</div>
+<div class="floating-btn" onclick="showForm()">Book Now</div>
 
 <!-- Woman-Owned Seal -->
 <div class="seal"><span>Woman-Owned<br>Small Business</span></div>
@@ -312,10 +295,13 @@ slider.style.left=x+'px';
 
 /* Order Forms */
 function sendCleaningOrder(e){ e.preventDefault(); alert("Cleaning order submitted!"); }
-function sendBundleOrder(e){ e.preventDefault(); alert("Bundle order submitted!"); }
 
-/* Show Form */
-function showForm(){ document.getElementById('cleaningForm').style.display='block'; }
+/* Show Form function */
+function showForm(){
+  const form = document.getElementById('cleaningForm');
+  form.style.display='block';
+  form.scrollIntoView({behavior:'smooth'});
+}
 </script>
 
 </body>
