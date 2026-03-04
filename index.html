@@ -59,10 +59,50 @@ a { text-decoration:none; }
 .floating-btn { position:fixed; bottom:20px; right:20px; background:#a29bfe; color:white; padding:15px 20px; border-radius:50px; font-weight:bold; cursor:pointer; box-shadow:0 5px 20px rgba(0,0,0,.3); z-index:1000; animation: pulse 2s infinite; }
 @keyframes pulse { 0%,100% { transform:scale(1); } 50% { transform:scale(1.05); } }
 
-/* Woman-Owned Seal (more official) */
-.seal { margin:60px auto; width:180px; height:180px; border-radius:50%; background:radial-gradient(circle, #ffd700 0%, #b8860b 100%); display:flex; justify-content:center; align-items:center; color:black; font-weight:bold; font-family:'Playfair Display', serif; text-align:center; box-shadow:0 5px 25px rgba(0,0,0,.4); border:3px solid #444; }
-.seal span { display:block; padding:10px; font-size:18px; text-transform:uppercase; }
+/* Woman-Owned Seal (official style) */
+.seal {
+  margin: 60px auto;
+  width: 220px;
+  height: 220px;
+  border-radius: 50%;
+  background: radial-gradient(circle at 30% 30%, #f7e7a1 0%, #d4af37 40%, #b8860b 75%, #8b6f1a 100%);
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0 8px 30px rgba(0,0,0,.45);
+  border: 6px solid #caa133;
+}
 
+.seal::before {
+  content: "";
+  position: absolute;
+  inset: 15px;
+  border-radius: 50%;
+  border: 3px solid rgba(0,0,0,0.25);
+}
+
+.seal span {
+  position: absolute;
+  width: 100%;
+  text-align: center;
+  font-family: 'Playfair Display', serif;
+  font-weight: 700;
+  color: #111;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+
+.seal .top {
+  top: 35px;
+  font-size: 18px;
+}
+
+.seal .bottom {
+  bottom: 35px;
+  font-size: 18px;
+}
+  
 /* Buttons Styling */
 .btn { padding:12px 20px; border-radius:6px; font-weight:bold; cursor:pointer; text-decoration:none; display:inline-flex; align-items:center; justify-content:center; margin:5px; border:2px solid white; transition:all 0.3s; }
 .btn-call { background:#28a745; color:white; border:2px solid white; }
@@ -106,56 +146,93 @@ a { text-decoration:none; }
 <div class="services">
 <div class="card">
 <h3>Standard Cleaning</h3>
-<p>Kitchen & bathrooms, dusting & wiping surfaces, vacuum & mop, trash removal.</p>
-<p><strong>Small homes $100–150 | Medium $150–200 | Large $200+</strong></p>
+<ul>
+<li>Kitchen & bathrooms</li>
+<li>Dusting & wiping surfaces</li>
+<li>Vacuum & mop</li>
+<li>Trash removal</li>
+</ul>
+<ul>
+<li><strong>Small homes $100–150</strong></li>
+<li><strong>Medium $150–200</strong></li>
+<li><strong>Large $200+</strong></li>
+</ul>
 </div>
 <div class="card">
 <h3>Deep Cleaning</h3>
-<p>Includes everything in standard package PLUS: baseboards & window sills, doors & cabinet fronts, extra attention to detail.</p>
-<p><strong>Small home $150–225 | Medium/Large $200–300+</strong></p>
+<ul>
+<li>Includes everything in standard package</li>
+<li>Baseboards & window sills</li>
+<li>Doors & cabinet fronts</li>
+<li>Extra attention to detail</li>
+</ul>
+<ul>
+<li><strong>Small home $150–225</strong></li>
+<li><strong>Medium/Large $200–300+</strong></li>
+</ul>
 </div>
 <div class="card">
 <h3>Move-In / Move-Out</h3>
-<p>Includes everything in standard and deep cleaning package PLUS: in & out fridge & stove sanitation, kitchen and bathroom sanitation.</p>
-<p><strong>Price depends on size & condition | Starting at $250+</strong></p>
-</div>
-</div>
-</div>
-
-<!-- Build Your Bundle -->
-<div class="section">
-<h2>Build Your Bundle</h2>
-<p style="text-align:center;">[IMAGE PLACEHOLDER]</p>
-<div class="order-form" style="max-width:600px; margin:auto;">
-<form onsubmit="sendCleaningOrder(event)">
-<select multiple required>
-<option>Bathrooms</option>
-<option>Kitchen Surfaces</option>
-<option>Floors</option>
-<option>Living Room Tidy</option>
-<option>Light Dusting</option>
-<option>Laundry</option>
-</select>
-<div>
 <ul>
-<li>You pick what YOU need most</li>
-<li>Fast & Budget friendly</li>
-<li>Perfect for before Parties and events</li>
+<li>Includes everything in standard and deep cleaning package</li>
+<li>In & out fridge & stove sanitation</li>
+<li>Kitchen and bathroom sanitation</li>
+</ul>
+<ul>
+<li><strong>Price depends on size & condition</strong></li>
+<li><strong>Starting at $250+</strong></li>
 </ul>
 </div>
-<input type="text" placeholder="Full Name" required>
-<input type="tel" placeholder="Phone Number" required>
-<input type="text" placeholder="Address">
-<input type="text" placeholder="Preferred Date / Availability" required>
-<textarea placeholder="Additional Requests"></textarea>
-<div class="payment-section">
-<a href="#" class="pay-btn cashapp">Cash App</a>
-<a href="#" class="pay-btn venmo">Venmo</a>
-</div>
-<button type="submit" class="submit-btn">Submit Bundle Order ($100)</button>
-</form>
 </div>
 </div>
+  
+<!-- Build Your Bundle -->
+<div class="section">
+  <h2>Build Your Bundle</h2>
+
+  <p style="text-align:center;">
+    <img src="https://via.placeholder.com/600x300" alt="Bundle Image" style="max-width:100%; height:auto;">
+  </p>
+
+  <div class="order-form" style="max-width:600px; margin:auto;">
+    <form action="mailto:youremail@example.com,1234567890@vtext.com" method="post" enctype="text/plain">
+
+      <select id="bundleSelect" name="Selected Services" multiple required>
+        <option>Bathrooms</option>
+        <option>Kitchen Surfaces</option>
+        <option>Floors</option>
+        <option>Living Room Tidy</option>
+        <option>Light Dusting</option>
+        <option>Laundry</option>
+      </select>
+
+      <div>
+        <ul>
+          <li>You pick what YOU need most</li>
+          <li>Fast & Budget friendly</li>
+          <li>Perfect for before Parties and events</li>
+        </ul>
+      </div>
+
+      <input type="text" name="Full Name" placeholder="Full Name" required>
+      <input type="tel" name="Phone Number" placeholder="Phone Number" required>
+      <input type="text" name="Address" placeholder="Address">
+      <input type="text" name="Preferred Date" placeholder="Preferred Date / Availability" required>
+      <textarea name="Additional Requests" placeholder="Additional Requests"></textarea>
+
+      <button type="submit" class="submit-btn">Submit Bundle Order ($100)</button>
+    </form>
+  </div>
+</div>
+
+<script>
+document.getElementById('bundleSelect').addEventListener('change', function () {
+    if (this.selectedOptions.length > 3) {
+        alert("You may select up to 3 services only.");
+        this.options[this.selectedIndex].selected = false;
+    }
+});
+</script>
 
 <!-- Why Hire Us -->
 <div class="section">
