@@ -3,370 +3,539 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <title>A Shore Thing Cleaning Solutions</title>
+
+<meta name="description" content="Affordable residential cleaning services. Standard cleaning, deep cleaning, and move-in/move-out cleaning. Book A Shore Thing Cleaning Solutions today.">
+<meta name="keywords" content="house cleaning, residential cleaning, deep cleaning, move out cleaning, cleaning services">
+<meta name="author" content="A Shore Thing Cleaning Solutions">
+
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
+
 <style>
+
 /* General Body */
-body { margin:0; font-family:'Segoe UI',Tahoma,Geneva,Verdana,sans-serif; background:#f5f7fa; color:#222; line-height:1.6; }
+body {
+margin:0;
+font-family:'Segoe UI',Tahoma,Geneva,Verdana,sans-serif;
+background:#f5f7fa;
+color:#222;
+line-height:1.6;
+}
+
 a { text-decoration:none; }
 
 /* Topbar */
-.topbar { background:#0d3b66; color:white; display:flex; justify-content:space-between; align-items:center; padding:15px 40px; font-weight:bold; }
-.topbar a { color:white; font-size:18px; }
+
+.topbar {
+background:#0d3b66;
+color:white;
+display:flex;
+justify-content:space-between;
+align-items:center;
+padding:15px 40px;
+font-weight:bold;
+}
+
+.topbar a {
+color:white;
+font-size:18px;
+}
 
 /* Hero */
-.hero { background:linear-gradient(rgba(0,0,0,.5),rgba(0,0,0,.5)), url('header image.JPG') center/cover no-repeat; color:white; padding:120px 20px; text-align:center; }
-.hero h1 { font-size:48px; margin-bottom:15px; font-family: 'Playfair Display', serif; }
-.hero p { font-size:20px; margin-bottom:25px; }
-.cta-btn { background:#e63946; color:white; padding:15px 30px; border:none; border-radius:6px; font-size:16px; cursor:pointer; transition: all 0.3s; }
-.cta-btn:hover { transform: scale(1.05); box-shadow:0 5px 20px rgba(230,57,70,.4); }
+
+.hero {
+background:linear-gradient(rgba(0,0,0,.5),rgba(0,0,0,.5)), url('header-image.jpg') center/cover no-repeat;
+color:white;
+padding:120px 20px;
+text-align:center;
+}
+
+.hero h1 {
+font-size:48px;
+margin-bottom:15px;
+font-family: 'Playfair Display', serif;
+}
+
+.hero p {
+font-size:20px;
+margin-bottom:25px;
+}
+
+.cta-btn {
+background:#e63946;
+color:white;
+padding:15px 30px;
+border:none;
+border-radius:6px;
+font-size:16px;
+cursor:pointer;
+transition: all 0.3s;
+}
+
+.cta-btn:hover {
+transform: scale(1.05);
+box-shadow:0 5px 20px rgba(230,57,70,.4);
+}
 
 /* Sections */
-.section { padding:80px 20px; max-width:1100px; margin:auto; }
-.section h2 { text-align:center; margin-bottom:40px; font-size:36px; color:#0d3b66; font-family: 'Playfair Display', serif; }
+
+.section {
+padding:80px 20px;
+max-width:1100px;
+margin:auto;
+}
+
+.section h2 {
+text-align:center;
+margin-bottom:40px;
+font-size:36px;
+color:#0d3b66;
+font-family: 'Playfair Display', serif;
+}
 
 /* Services */
-.services { display:grid; grid-template-columns:repeat(auto-fit,minmax(250px,1fr)); gap:30px; }
-.card { background:white; padding:30px; border-radius:12px; box-shadow:0 5px 20px rgba(0,0,0,.1); transition:all 0.3s; }
-.card:hover { transform: translateY(-5px); box-shadow:0 10px 25px rgba(0,0,0,.15); }
-.card h3 { color:#0d3b66; margin-bottom:15px; font-family: 'Playfair Display', serif; }
 
-/* Why Hire Us & Tiles */
-.why, .tips { display:grid; grid-template-columns:repeat(auto-fit,minmax(250px,1fr)); gap:30px; text-align:center; }
-.why div, .tips div { background:white; padding:25px; border-radius:12px; box-shadow:0 5px 20px rgba(0,0,0,.1); }
-.why h3, .tips h3 { color:#0d3b66; margin-bottom:10px; font-family: 'Playfair Display', serif; }
+.services {
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+gap:30px;
+}
+
+.card {
+background:white;
+padding:30px;
+border-radius:12px;
+box-shadow:0 5px 20px rgba(0,0,0,.1);
+transition:all 0.3s;
+}
+
+.card:hover {
+transform: translateY(-5px);
+box-shadow:0 10px 25px rgba(0,0,0,.15);
+}
+
+.card h3 {
+color:#0d3b66;
+margin-bottom:15px;
+font-family: 'Playfair Display', serif;
+}
+
+/* Why Hire Us & Tips */
+
+.why,
+.tips {
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+gap:30px;
+text-align:center;
+}
+
+.why div,
+.tips div {
+background:white;
+padding:25px;
+border-radius:12px;
+box-shadow:0 5px 20px rgba(0,0,0,.1);
+}
+
+.why h3,
+.tips h3 {
+color:#0d3b66;
+margin-bottom:10px;
+font-family: 'Playfair Display', serif;
+}
 
 /* FAQ */
-.faq { max-width:900px; margin:auto; }
-.faq-item { background:white; padding:20px 25px; margin-bottom:10px; border-radius:8px; box-shadow:0 5px 20px rgba(0,0,0,.05); cursor:pointer; transition:all 0.3s; }
-.faq-item:hover { transform:scale(1.02); }
-.faq-item h4 { margin:0; font-family: 'Playfair Display', serif; }
-.faq-item p { display:none; margin-top:10px; }
 
-/* Before/After Slider */
-.before-after-section { padding:60px 20px; text-align:center; }
-.compare-container { position:relative; max-width:800px; margin:40px auto; overflow:hidden; border-radius:12px; }
-.compare-container img { display:block; width:100%; }
-.overlay { position:absolute; top:0; right:0; width:50%; height:100%; overflow:hidden; }
-.overlay img { height:100%; object-fit:cover; }
-.slider { position:absolute; top:0; left:50%; width:5px; height:100%; background:white; cursor: ew-resize; }
+.faq {
+max-width:900px;
+margin:auto;
+}
+
+.faq-item {
+background:white;
+padding:20px 25px;
+margin-bottom:10px;
+border-radius:8px;
+box-shadow:0 5px 20px rgba(0,0,0,.05);
+cursor:pointer;
+transition:all 0.3s;
+}
+
+.faq-item:hover {
+transform:scale(1.02);
+}
+
+.faq-item h4 {
+margin:0;
+font-family: 'Playfair Display', serif;
+}
+
+.faq-item p {
+display:none;
+margin-top:10px;
+}
+
+/* Before After Slider */
+
+.before-after-section {
+padding:60px 20px;
+text-align:center;
+}
+
+.compare-container {
+position:relative;
+max-width:800px;
+margin:40px auto;
+overflow:hidden;
+border-radius:12px;
+}
+
+.compare-container img {
+display:block;
+width:100%;
+}
+
+.overlay {
+position:absolute;
+top:0;
+right:0;
+width:50%;
+height:100%;
+overflow:hidden;
+}
+
+.overlay img {
+height:100%;
+object-fit:cover;
+}
+
+.slider {
+position:absolute;
+top:0;
+left:50%;
+width:5px;
+height:100%;
+background:white;
+cursor: ew-resize;
+}
 
 /* Gallery */
-.gallery-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(200px,1fr)); gap:15px; max-width:1100px; margin:auto; }
-.gallery-grid img { width:100%; height:200px; object-fit:cover; border-radius:10px; cursor:pointer; transition:all 0.3s; }
-.gallery-grid img:hover { transform:scale(1.05); }
 
-/* Floating Mobile Book Now */
-.floating-btn { position:fixed; bottom:20px; right:20px; background:#a29bfe; color:white; padding:15px 20px; border-radius:50px; font-weight:bold; cursor:pointer; box-shadow:0 5px 20px rgba(0,0,0,.3); z-index:1000; animation: pulse 2s infinite; }
-@keyframes pulse { 0%,100% { transform:scale(1); } 50% { transform:scale(1.05); } }
+.gallery-grid {
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
+gap:15px;
+max-width:1100px;
+margin:auto;
+}
 
-/* Woman-Owned Seal (official style) */
+.gallery-grid img {
+width:100%;
+height:200px;
+object-fit:cover;
+border-radius:10px;
+cursor:pointer;
+transition:all 0.3s;
+}
+
+.gallery-grid img:hover {
+transform:scale(1.05);
+}
+
+/* Floating button */
+
+.floating-btn {
+position:fixed;
+bottom:20px;
+right:20px;
+background:#a29bfe;
+color:white;
+padding:15px 20px;
+border-radius:50px;
+font-weight:bold;
+cursor:pointer;
+box-shadow:0 5px 20px rgba(0,0,0,.3);
+z-index:1000;
+animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+
+0%,100% { transform:scale(1); }
+
+50% { transform:scale(1.05); }
+
+}
+
+/* Woman owned seal */
+
 .seal {
-  margin: 60px auto;
-  width: 220px;
-  height: 220px;
-  border-radius: 50%;
-  background: radial-gradient(circle at 30% 30%, #f7e7a1 0%, #d4af37 40%, #b8860b 75%, #8b6f1a 100%);
-  position: relative;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  box-shadow: 0 8px 30px rgba(0,0,0,.45);
-  border: 6px solid #caa133;
+margin: 60px auto;
+width: 220px;
+height: 220px;
+border-radius: 50%;
+background: radial-gradient(circle at 30% 30%, #f7e7a1 0%, #d4af37 40%, #b8860b 75%, #8b6f1a 100%);
+position: relative;
+display: flex;
+justify-content: center;
+align-items: center;
+box-shadow: 0 8px 30px rgba(0,0,0,.45);
+border: 6px solid #caa133;
 }
 
 .seal::before {
-  content: "";
-  position: absolute;
-  inset: 15px;
-  border-radius: 50%;
-  border: 3px solid rgba(0,0,0,0.25);
+content: "";
+position: absolute;
+inset: 15px;
+border-radius: 50%;
+border: 3px solid rgba(0,0,0,0.25);
 }
 
 .seal span {
-  position: absolute;
-  width: 100%;
-  text-align: center;
-  font-family: 'Playfair Display', serif;
-  font-weight: 700;
-  color: #111;
-  letter-spacing: 2px;
-  text-transform: uppercase;
+position: absolute;
+width: 100%;
+text-align: center;
+font-family: 'Playfair Display', serif;
+font-weight: 700;
+color: #111;
+letter-spacing: 2px;
+text-transform: uppercase;
 }
 
 .seal .top {
-  top: 35px;
-  font-size: 18px;
+top: 35px;
+font-size: 18px;
 }
 
 .seal .bottom {
-  bottom: 35px;
-  font-size: 18px;
+bottom: 35px;
+font-size: 18px;
 }
-  
-/* Buttons Styling */
-.btn { padding:12px 20px; border-radius:6px; font-weight:bold; cursor:pointer; text-decoration:none; display:inline-flex; align-items:center; justify-content:center; margin:5px; border:2px solid white; transition:all 0.3s; }
-.btn-call { background:#28a745; color:white; border:2px solid white; }
-.btn-facebook { background:#1877F2; color:white; border:2px solid white; }
-.btn-tiktok { background:#111; color:white; border:2px solid white; }
-.btn-chocolate { background:linear-gradient(45deg,#d4af37,#8B4513); color:white; border:2px solid white; }
-.btn-custom { background:#6f42c1; color:white; border:2px solid white; }
-.btn-book { background:#a29bfe; color:white; border:2px solid #3498db; animation: shimmer 2s infinite; }
-@keyframes shimmer { 0%{background-position:0 0;} 100%{background-position:100% 0;} }
 
-/* Payment buttons */
-.pay-btn { flex:1; padding:12px; border-radius:6px; color:white; text-decoration:none; font-weight:bold; display:inline-block; text-align:center; }
-.cashapp { background:#00C244; }
-.venmo { background:#3D95CE; }
-.payment-section { display:flex; gap:10px; margin:10px 0; }
+/* Buttons */
 
-/* Modal Form */
-.modal { display:none; position:fixed; z-index:2000; left:0; top:0; width:100%; height:100%; overflow:auto; background:rgba(0,0,0,0.6); }
-.modal-content { background:white; margin:5% auto; padding:40px; border-radius:12px; max-width:600px; position:relative; }
-.close { position:absolute; top:15px; right:20px; font-size:28px; font-weight:bold; color:#333; cursor:pointer; }
+.btn {
+padding:12px 20px;
+border-radius:6px;
+font-weight:bold;
+cursor:pointer;
+text-decoration:none;
+display:inline-flex;
+align-items:center;
+justify-content:center;
+margin:5px;
+border:2px solid white;
+transition:all 0.3s;
+}
+
+.btn-call { background:#28a745; color:white; }
+
+.btn-facebook { background:#1877F2; color:white; }
+
+.btn-tiktok { background:#111; color:white; }
+
 </style>
 </head>
+
 <body>
 
-<!-- Topbar -->
 <div class="topbar">
 <div>A Shore Thing Cleaning Solutions</div>
 <a href="tel:6094128005">Call or Text: 609-412-8005</a>
 </div>
 
-<!-- Hero -->
 <div class="hero">
+
 <h1>Professional Residential Cleaning Services</h1>
+
 <p>Affordable. Reliable. Priority Cleaning</p>
+
 <button class="cta-btn" id="bookNowBtn">Book Now</button>
+
+<div style="margin-top:20px;">
+
+<a href="https://facebook.com" class="btn btn-facebook">Facebook</a>
+
+<a href="https://tiktok.com" class="btn btn-tiktok">TikTok</a>
+
+<a href="tel:6094128005" class="btn btn-call">Call Now</a>
+
 </div>
 
-<!-- Services -->
+</div>
+
 <div class="section">
+
 <h2>Our Cleaning Services</h2>
+
 <div class="services">
+
 <div class="card">
+
 <h3>Standard Cleaning</h3>
+
 <ul>
+
 <li>Kitchen & bathrooms</li>
+
 <li>Dusting & wiping surfaces</li>
+
 <li>Vacuum & mop</li>
+
 <li>Trash removal</li>
+
 </ul>
+
 <ul>
+
 <li><strong>Small homes $100–150</strong></li>
+
 <li><strong>Medium $150–200</strong></li>
+
 <li><strong>Large $200+</strong></li>
+
 </ul>
+
 </div>
+
 <div class="card">
+
 <h3>Deep Cleaning</h3>
+
 <ul>
+
 <li>Includes everything in standard package</li>
+
 <li>Baseboards & window sills</li>
+
 <li>Doors & cabinet fronts</li>
+
 <li>Extra attention to detail</li>
+
 </ul>
+
 <ul>
+
 <li><strong>Small home $150–225</strong></li>
+
 <li><strong>Medium/Large $200–300+</strong></li>
+
 </ul>
+
 </div>
+
 <div class="card">
+
 <h3>Move-In / Move-Out</h3>
+
 <ul>
+
 <li>Includes everything in standard and deep cleaning package</li>
+
 <li>In & out fridge & stove sanitation</li>
+
 <li>Kitchen and bathroom sanitation</li>
+
 </ul>
+
 <ul>
+
 <li><strong>Price depends on size & condition</strong></li>
+
 <li><strong>Starting at $250+</strong></li>
+
 </ul>
+
 </div>
+
 </div>
+
 </div>
-  
-<!-- Build Your Bundle -->
-<div class="section">
-  <h2>Build Your Bundle</h2>
 
-  <p style="text-align:center;">
-    <img src="https://via.placeholder.com/600x300" alt="Bundle Image" style="max-width:100%; height:auto;">
-  </p>
+<div class="seal">
 
-  <div class="order-form" style="max-width:600px; margin:auto;">
-    <form action="mailto:youremail@example.com,1234567890@vtext.com" method="post" enctype="text/plain">
+<span class="top">Woman-Owned</span>
 
-      <select id="bundleSelect" name="Selected Services" multiple required>
-        <option>Bathrooms</option>
-        <option>Kitchen Surfaces</option>
-        <option>Floors</option>
-        <option>Living Room Tidy</option>
-        <option>Light Dusting</option>
-        <option>Laundry</option>
-      </select>
+<span class="bottom">Small Business</span>
 
-      <div>
-        <ul>
-          <li>You pick what YOU need most</li>
-          <li>Fast & Budget friendly</li>
-          <li>Perfect for before Parties and events</li>
-        </ul>
-      </div>
-
-      <input type="text" name="Full Name" placeholder="Full Name" required>
-      <input type="tel" name="Phone Number" placeholder="Phone Number" required>
-      <input type="text" name="Address" placeholder="Address">
-      <input type="text" name="Preferred Date" placeholder="Preferred Date / Availability" required>
-      <textarea name="Additional Requests" placeholder="Additional Requests"></textarea>
-
-      <button type="submit" class="submit-btn">Submit Bundle Order ($100)</button>
-    </form>
-  </div>
 </div>
 
 <script>
-document.getElementById('bundleSelect').addEventListener('change', function () {
-    if (this.selectedOptions.length > 3) {
-        alert("You may select up to 3 services only.");
-        this.options[this.selectedIndex].selected = false;
-    }
-});
-</script>
 
-<!-- Why Hire Us -->
-<div class="section">
-<h2>Why Hire Us?</h2>
-<div class="why">
-<div><h3>Affordable Cleaning</h3><p>Competitive pricing for real families.</p></div>
-<div><h3>No Contracts</h3><p>Book as needed, no long-term commitments.</p></div>
-<div><h3>Easy Cancellation</h3><p>Flexible scheduling that works around your life.</p></div>
-<div><h3>Priority Scheduling</h3><p>Regular clients get priority booking.</p></div>
-</div>
-</div>
+function toggleFAQ(item){
 
-<!-- Cleaning Tips -->
-<div class="section">
-<h2>Cleaning Tips</h2>
-<div class="tips">
-<div><h3>Tip 1</h3><p>Always clean top to bottom to avoid re-dusting surfaces.</p></div>
-<div><h3>Tip 2</h3><p>Use microfiber cloths to capture dust effectively.</p></div>
-<div><h3>Tip 3</h3><p>Regularly sanitize high-touch surfaces to prevent germ spread.</p></div>
-<div><h3>Tip 4</h3><p>Declutter before cleaning to save time and energy.</p></div>
-</div>
-</div>
+let p=item.querySelector('p');
 
-<!-- FAQ -->
-<div class="section">
-<h2>Frequently Asked Questions</h2>
-<div class="faq">
-<div class="faq-item" onclick="toggleFAQ(this)"><h4>Do I need to provide cleaning supplies?</h4><p>We bring all necessary supplies, but can use yours if requested.</p></div>
-<div class="faq-item" onclick="toggleFAQ(this)"><h4>How long does cleaning take?</h4><p>Time depends on home size and service type, typically 2–5 hours.</p></div>
-<div class="faq-item" onclick="toggleFAQ(this)"><h4>Do I need to be home during service?</h4><p>Not necessarily; we can coordinate key pickup or lockbox access.</p></div>
-<div class="faq-item" onclick="toggleFAQ(this)"><h4>How do I pay?</h4><p>We accept Cash App, Venmo, or other options provided on order forms.</p></div>
-</div>
-</div>
+p.style.display=p.style.display==='block'?'none':'block';
 
-<!-- Before & After -->
-<div class="section before-after-section">
-<h2>Before & After</h2>
-<div class="compare-container">
-<img src="15 corner bottom before 1.JPG">
-<div class="overlay"><img src="7 corner bottom after 1.JPG"></div>
-<div class="slider"></div>
-</div>
-<div class="compare-container">
-<img src="nasty before.JPG">
-<div class="overlay"><img src="nasty after.JPG"></div>
-<div class="slider"></div>
-</div>
-<div class="compare-container">
-<img src="sink 1 before.JPG">
-<div class="overlay"><img src="sink after 1.JPG"></div>
-<div class="slider"></div>
-</div>
-</div>
+}
 
-<!-- Gallery B-roll -->
-<div class="section">
-<h2>Our Work</h2>
-<div class="gallery-grid">
-<img src="happy-family-livingroom.jpg">
-<img src="clean-kitchen.jpg">
-<img src="bedroom-clean.jpg">
-<img src="family-cleaning.jpg">
-<img src="living-room.jpg">
-</div>
-</div>
-
-<!-- Floating Mobile Button -->
-<div class="floating-btn" id="floatingBtn">Book Now</div>
-
-<!-- Woman-Owned Seal -->
-<div class="seal"><span>Woman-Owned<br>Small Business</span></div>
-
-<!-- Cleaning Order Modal -->
-<div id="cleaningModal" class="modal">
-<div class="modal-content">
-<span class="close" id="closeModal">&times;</span>
-<h3>Cleaning Service Request</h3>
-<form onsubmit="sendCleaningOrder(event)">
-<select required>
-<option value="">Select Service</option>
-<option>Standard Cleaning</option>
-<option>Deep Cleaning</option>
-<option>Move-In/Move-Out</option>
-</select>
-<input type="text" placeholder="Full Name" required>
-<input type="tel" placeholder="Phone Number" required>
-<input type="text" placeholder="Address">
-<input type="text" placeholder="Preferred Date / Availability" required>
-<textarea placeholder="Additional Requests"></textarea>
-<div class="payment-section">
-<a href="#" class="pay-btn cashapp">Cash App</a>
-<a href="#" class="pay-btn venmo">Venmo</a>
-</div>
-<button type="submit" class="submit-btn">Submit Cleaning Order</button>
-</form>
-</div>
-</div>
-
-<script>
-/* FAQ toggle */
-function toggleFAQ(item){ let p=item.querySelector('p'); p.style.display=p.style.display==='block'?'none':'block'; }
-
-/* Before/After Slider */
 document.querySelectorAll('.compare-container').forEach(container=>{
+
 const slider=container.querySelector('.slider');
+
 const overlay=container.querySelector('.overlay');
-function setInitial(){ overlay.style.width=container.offsetWidth/2+'px'; slider.style.left=container.offsetWidth/2+'px'; }
+
+function setInitial(){
+
+overlay.style.width=container.offsetWidth/2+'px';
+
+slider.style.left=container.offsetWidth/2+'px';
+
+}
+
 window.addEventListener('load', setInitial);
+
 window.addEventListener('resize', setInitial);
+
 let dragging=false;
+
 slider.addEventListener('mousedown',()=>dragging=true);
+
 document.addEventListener('mouseup',()=>dragging=false);
+
 document.addEventListener('mousemove',(e)=>{
+
 if(!dragging)return;
+
 let rect=container.getBoundingClientRect();
+
 let x=e.clientX-rect.left;
+
 x=Math.max(0,Math.min(x,rect.width));
+
 overlay.style.width=x+'px';
+
 slider.style.left=x+'px';
-});
+
 });
 
-/* Cleaning Order Modal */
-const modal=document.getElementById('cleaningModal');
-const btn=document.getElementById('bookNowBtn');
-const floating=document.getElementById('floatingBtn');
-const span=document.getElementById('closeModal');
-btn.onclick=()=>{modal.style.display='block'; window.scrollTo(0,0);}
-floating.onclick=()=>{modal.style.display='block'; window.scrollTo(0,0);}
-span.onclick=()=>{modal.style.display='none';}
-window.onclick=function(e){ if(e.target==modal){ modal.style.display='none'; }}
+/* mobile support */
 
-/* Order Forms */
-function sendCleaningOrder(e){ e.preventDefault(); alert("Cleaning order submitted!"); }
+slider.addEventListener('touchstart',()=>dragging=true);
+
+document.addEventListener('touchend',()=>dragging=false);
+
+document.addEventListener('touchmove',(e)=>{
+
+if(!dragging)return;
+
+let rect=container.getBoundingClientRect();
+
+let x=e.touches[0].clientX-rect.left;
+
+x=Math.max(0,Math.min(x,rect.width));
+
+overlay.style.width=x+'px';
+
+slider.style.left=x+'px';
+
+});
+
+});
+
 </script>
 
 </body>
